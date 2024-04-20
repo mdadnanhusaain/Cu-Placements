@@ -51,13 +51,13 @@ app.get("/profile", (req, res) => {
 });
 
 app.get("/login", (req, res) => {
-  res.render("user/Login.ejs");
+  let role = null;
+  res.render("user/Login.ejs", { role });
 });
 
 app.get("/signup", (req, res) => {
   res.render("user/Signup.ejs");
 });
-
 
 app.listen(process.env.PORT, () => {
   console.log(`Server is listening on http://localhost:${process.env.PORT}`);

@@ -1,0 +1,14 @@
+.search-box{
+    width: 20rem;
+}
+
+.contain{
+    display: flex;
+}
+
+.t-limit{
+    white-space: wrap;
+    
+    text-overflow: ellipsis;
+    max-width: 15rem;
+  }
