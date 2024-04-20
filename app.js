@@ -6,6 +6,8 @@ const ejsMate = require("ejs-mate");
 const path = require("path");
 const app = express();
 
+const Company = require("./models/company.js");
+
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
@@ -15,7 +17,7 @@ app.engine("ejs", ejsMate);
 // MongoDB Connection
 async function main() {
   // await mongoose.connect(process.env.ATLAS_URL);
-  await mongoose.connect(`${process.env.MONGO_URL}`);
+  await mongoose.connect(`${process.env.MONGO_URL}/${process.env.DATABASE}`);
 }
 
 main()
@@ -33,20 +35,29 @@ app.get("/", (req, res) => {
 app.get("/company/:id", (req, res) => {
   let { id } = req.params;
   console.log(id);
-  res.send(`Company Details :- ${id}`);
+  res.render("pages/aboutCompany.ejs", { id });
+});
+
+app.post("/company/:id", (req, res) => {
+  let { id } = req.params;
+  console.log(id);
+  let company = { ...req.body.company };
+  let newCompany = new Company(company);
+  res.send(newCompany);
 });
 
 app.get("/profile", (req, res) => {
-  res.send("Profile");
+  res.render("pages/profile.ejs");
 });
 
 app.get("/login", (req, res) => {
-  res.send("Login");
+  res.render("user/Login.ejs");
 });
 
 app.get("/signup", (req, res) => {
-  res.send("SignUp");
+  res.render("user/Signup.ejs");
 });
+
 
 app.listen(process.env.PORT, () => {
   console.log(`Server is listening on http://localhost:${process.env.PORT}`);
