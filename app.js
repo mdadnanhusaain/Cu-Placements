@@ -50,13 +50,20 @@ app.get("/profile", (req, res) => {
   res.render("pages/profile.ejs");
 });
 
-app.get("/login", (req, res) => {
-  let role = null;
-  res.render("user/Login.ejs", { role });
+app.get("/Alogin", (req, res) => {
+  res.render("user/ALogin.ejs");
 });
 
-app.get("/signup", (req, res) => {
-  res.render("user/Signup.ejs");
+app.get("/Asignup", (req, res) => {
+  res.render("user/ASignup.ejs");
+});
+
+app.get("/Slogin", (req, res) => {
+  res.render("user/SLogin.ejs");
+});
+
+app.get("/Ssignup", (req, res) => {
+  res.render("user/SSignup.ejs");
 });
 
 app.listen(process.env.PORT, () => {
