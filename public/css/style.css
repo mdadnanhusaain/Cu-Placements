@@ -1,14 +1,55 @@
-.search-box{
-    width: 20rem;
+.search-box {
+  width: 20rem;
 }
 
-.contain{
-    display: flex;
+.t-limit {
+  white-space: wrap;
+
+  text-overflow: ellipsis;
+  max-width: 15rem;
 }
 
-.t-limit{
-    white-space: wrap;
-    
-    text-overflow: ellipsis;
-    max-width: 15rem;
-  }
+.nav-bg {
+  background-color: #111d13;
+}
+
+.card img {
+  width: 100%;
+}
+
+.hero-image {
+  width: 3rem;
+  box-shadow: 0 0 0.45rem #e53825;
+}
+
+.navbar-brand {
+  width: 13rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.hero-name {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 1rem;
+  font-weight: 700;
+  color: #e53825;
+  text-shadow: 0 0 0.1rem #982518;
+}
+
+.name1 {
+  letter-spacing: 0.3rem;
+}
+
+.navbar {
+  font-family: "Cinzel", serif;
+  background-color: #333;
+}
+
+.card-text span {
+  font-weight: 600;
+  text-decoration: underline;
+  display: block;
+}
