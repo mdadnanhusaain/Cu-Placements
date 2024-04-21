@@ -13,6 +13,10 @@
   background-color: #111d13;
 }
 
+.card {
+  border-radius: 1rem;
+}
+
 .card img {
   width: 100%;
 }
@@ -36,7 +40,7 @@
   margin-left: 1rem;
   font-weight: 700;
   color: #e53825;
-  text-shadow: 0 0 0.1rem #982518;
+  text-shadow: 0 0 0.1rem #47120c;
 }
 
 .name1 {
@@ -52,4 +56,25 @@
   font-weight: 600;
   text-decoration: underline;
   display: block;
+}
+
+.container {
+  margin-top: 2rem;
+}
+
+.form-container {
+  padding: 2rem;
+  border-radius: 1rem;
+  background-color: #b17d7987;
+  box-shadow: 0.5rem 0.5rem 0.5rem #b17d79;
+}
+
+.form-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+  width: 35%;
+  padding: 2rem;
+  border-radius: 1rem;
 }
