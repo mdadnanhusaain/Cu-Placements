@@ -1,8 +1,8 @@
 <% layout("/layouts/boilerplate.ejs") %>
 
 <div class="row">
-  <div class="col-8 offset-2">
-    <h1 class="text-center">Student SignUp</h1>
+  <div class="student-form col-8 offset-2 px-5 py-4">
+    <h1 class="form-heading text-center">Student SignUp</h1>
     <br /><br />
 
     <form>
@@ -26,29 +26,21 @@
           <input type="email" class="form-control" id="email" />
         </div>
         <div class="mb-3 col-md-6">
-          <label for="exampleInputPassword1" class="form-label">Password</label>
-          <input
-            type="password"
-            class="form-control"
-            id="exampleInputPassword1"
-          />
+          <label for="password" class="form-label">Password</label>
+          <input type="password" class="form-control" id="password" />
         </div>
       </div>
       <div class="row">
         <div class="mb-3 col-md-6">
-          <label for="exampleInputEmail1" class="form-label"
-            >Phone Number</label
-          >
-          <input type="number" class="form-control" id="exampleInputEmail1" />
+          <label for="phone" class="form-label">Phone Number</label>
+          <input type="number" class="form-control" id="phone" />
         </div>
         <div class="mb-3 col-md-3">
-          <label for="exampleInputEmail1" class="form-label"
-            >Date of Birth</label
-          >
-          <input type="date" class="form-control" id="exampleInputEmail1" />
+          <label for="dob" class="form-label">Date of Birth</label>
+          <input type="date" class="form-control" id="dob" />
         </div>
         <div class="mb-3 col-md-3">
-          <label for="gender" class="form-label">Gender</label>
+          <label for="" class="form-label">Gender</label>
           <br />
           <div
             class="g-options d-flex justify-content-between col-md-10 align-items-center"
@@ -80,121 +72,107 @@
       <hr class="hr" />
       <div class="row">
         <div class="mb-3 col-md-6">
-          <label for="exampleInputEmail1" class="form-label"
-            >University Name</label
-          >
-          <input type="text" class="form-control" id="exampleInputEmail1" />
+          <label for="uname" class="form-label">University Name</label>
+          <input type="text" class="form-control" id="uname" />
         </div>
         <div class="mb-3 col-md-6">
-          <label for="exampleInputEmail1" class="form-label"
-            >College Name</label
-          >
-          <input type="text" class="form-control" id="exampleInputEmail1" />
+          <label for="cname" class="form-label">College Name</label>
+          <input type="text" class="form-control" id="cname" />
         </div>
       </div>
       <div class="row">
         <div class="mb-3 col-md-6">
-          <label for="exampleInputEmail1" class="form-label">Branch</label>
-          <input type="text" class="form-control" id="exampleInputEmail1" />
+          <label for="branch" class="form-label">Branch</label>
+          <input type="text" class="form-control" id="branch" />
         </div>
         <div class="mb-3 col-md-6">
-          <label for="exampleInputEmail1" class="form-label">Stream</label>
-          <input type="text" class="form-control" id="exampleInputEmail1" />
+          <label for="stream" class="form-label">Stream</label>
+          <input type="text" class="form-control" id="stream" />
         </div>
       </div>
       <div class="row">
         <div class="mb-3 col-md-4">
-          <label for="exampleInputEmail1" class="form-label">CGPA</label>
-          <input type="number" class="form-control" id="exampleInputEmail1" />
+          <label for="cgpa" class="form-label">CGPA</label>
+          <input type="number" class="form-control" id="cgpa" />
         </div>
         <div class="mb-3 col-md-4">
-          <label for="exampleInputEmail1" class="form-label">Gap</label>
-          <input type="number" class="form-control" id="exampleInputEmail1" />
+          <label for="gap" class="form-label">Gap</label>
+          <input type="number" class="form-control" id="gap" />
         </div>
         <div class="mb-3 col-md-4">
-          <label for="exampleInputEmail1" class="form-label">Batch</label>
-          <input type="number" class="form-control" id="exampleInputEmail1" />
+          <label for="batch" class="form-label">Batch</label>
+          <input type="number" class="form-control" id="batch" />
         </div>
       </div>
       <br />
       <div class="row">
         <div class="label col-md-6">
-          <label for="exampleInputEmail1" class="form-label"
-            ><h4>10th Details</h4></label
-          >
+          <label for="" class="form-label"><h4>10th Details</h4></label>
           <hr class="hr" />
         </div>
         <div class="label col-md-6">
-          <label for="exampleInputEmail1" class="form-label"
-            ><h4>12th Details</h4></label
-          >
+          <label for="" class="form-label"><h4>12th Details</h4></label>
           <hr class="hr" />
         </div>
       </div>
       <div class="row">
         <div class="mb-3 col-md-6">
-          <label for="exampleInputEmail1" class="form-label"
-            >10th Percentage</label
-          >
-          <input type="number" class="form-control" id="exampleInputEmail1" />
+          <label for="tenper" class="form-label">10th Percentage</label>
+          <input type="number" class="form-control" id="tenper" />
         </div>
         <div class="mb-3 col-md-6">
-          <label for="exampleInputEmail1" class="form-label"
-            >12th Percentage</label
-          >
-          <input type="number" class="form-control" id="exampleInputEmail1" />
+          <label for="tweper" class="form-label">12th Percentage</label>
+          <input type="number" class="form-control" id="tweper" />
         </div>
       </div>
       <div class="row mt-4">
         <div class="mb-3 col-md-6">
-          <label for="exampleInputEmail1" class="form-label">10th Board</label>
-          <input type="text" class="form-control" id="exampleInputEmail1" />
+          <label for="tenb" class="form-label">10th Board</label>
+          <input type="text" class="form-control" id="tenb" />
         </div>
         <div class="mb-3 col-md-6">
-          <label for="exampleInputEmail1" class="form-label">12th Board</label>
-          <input type="text" class="form-control" id="exampleInputEmail1" />
+          <label for="tweb" class="form-label">12th Board</label>
+          <input type="text" class="form-control" id="tweb" />
         </div>
       </div>
       <div class="row">
         <div class="mb-3 col-md-6">
-          <label for="exampleInputEmail1" class="form-label">10th School</label>
-          <input type="text" class="form-control" id="exampleInputEmail1" />
+          <label for="tens" class="form-label">10th School</label>
+          <input type="text" class="form-control" id="tens" />
         </div>
         <div class="mb-3 col-md-6">
-          <label for="exampleInputEmail1" class="form-label">12th School</label>
-          <input type="text" class="form-control" id="exampleInputEmail1" />
+          <label for="twes" class="form-label">12th School</label>
+          <input type="text" class="form-control" id="twes" />
         </div>
       </div>
       <div class="row mt-4">
         <div class="label">
-          <label for="exampleInputEmail1" class="form-label"
-            ><h3>Residential Details</h3></label
-          >
+          <label for="" class="form-label"><h3>Residential Details</h3></label>
           <hr class="hr" />
         </div>
       </div>
       <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Full Address</label>
-        <input type="text" class="form-control" id="exampleInputEmail1" />
+        <label for="address" class="form-label">Full Address</label>
+        <input type="text" class="form-control" id="address" />
       </div>
       <div class="row">
         <div class="mb-3 col-md-6">
-          <label for="exampleInputEmail1" class="form-label">City</label>
-          <input type="text" class="form-control" id="exampleInputEmail1" />
+          <label for="city" class="form-label">City</label>
+          <input type="text" class="form-control" id="city" />
         </div>
         <div class="mb-3 col-md-6">
-          <label for="exampleInputEmail1" class="form-label">State</label>
-          <input type="text" class="form-control" id="exampleInputEmail1" />
+          <label for="state" class="form-label">State</label>
+          <input type="text" class="form-control" id="state" />
         </div>
       </div>
       <hr class="hr" />
       <div class="row">
         <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label">Resume</label>
+          <label for="resume" class="form-label">Resume</label>
           <input
             type="file"
             class="form-control"
-            id="exampleInputEmail1"
+            id="resume"
             accept="application/pdf"
           />
         </div>
@@ -203,7 +181,7 @@
         <input type="checkbox" class="form-check-input" id="exampleCheck1" />
         <label class="form-check-label" for="exampleCheck1">Remember me</label>
       </div>
-      <button type="submit" class="btn btn-danger">Submit</button>
+      <button type="submit" class="btn btn-secondary">Submit</button>
     </form>
   </div>
 </div>

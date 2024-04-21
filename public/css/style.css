@@ -68,6 +68,7 @@ body {
 .form-container {
   padding: 2rem;
   border-radius: 1rem;
+
   background-color: #b17d7987;
   box-shadow: 0.5rem 0.5rem 0.5rem #b17d79;
 }
@@ -80,4 +81,32 @@ body {
   width: 35%;
   padding: 2rem;
   border-radius: 1rem;
+}
+.footer {
+  background-color: #888;
+  color: #eee;
+  height: 3rem;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  margin: 4rem 0 0 0;
+  box-shadow: 0 -0.1rem 1rem #aaa;
+}
+
+.student-form {
+  background-color: #bfcddc;
+  box-shadow: 0.5rem 0.5rem 0.5rem #929598c8;
+
+  border-radius: 1rem;
+}
+
+.form-heading {
+  font-family: "Playfair Display SC", serif;
+  font-weight: 700;
+}
+
+.slogin {
+  background-color: #bfcddc;
+  box-shadow: 0.5rem 0.5rem 0.5rem #929598c8;
 }
