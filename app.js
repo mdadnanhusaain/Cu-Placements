@@ -28,27 +28,37 @@ main()
     console.log(err);
   });
 
+// Page Routes
+
 app.get("/", (req, res) => {
   res.render("pages/Home.ejs");
 });
 
-app.get("/company/:id", (req, res) => {
-  let { id } = req.params;
-  console.log(id);
-  res.render("pages/aboutCompany.ejs", { id });
+app.get("/aboutCompany", (req, res) => {
+  res.render("pages/aboutCompany.ejs");
 });
 
-app.post("/company/:id", (req, res) => {
-  let { id } = req.params;
-  console.log(id);
-  let company = { ...req.body.company };
-  let newCompany = new Company(company);
-  res.send(newCompany);
+app.get("/addCompany", (req, res) => {
+  res.render("pages/addCompany.ejs");
+});
+
+app.get("/editCompany", (req, res) => {
+  res.render("pages/editCompany.ejs");
 });
 
 app.get("/profile", (req, res) => {
   res.render("pages/profile.ejs");
 });
+
+app.get("/myCompanies", (req, res) => {
+  res.render("pages/myCompanies.ejs");
+});
+
+app.get("/editProfile", (req, res) => {
+  res.render("pages/editProfile.ejs");
+});
+
+// User Routes
 
 app.get("/Alogin", (req, res) => {
   res.render("user/ALogin.ejs");
