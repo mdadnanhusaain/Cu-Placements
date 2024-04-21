@@ -1,3 +1,6 @@
+body {
+  overflow-x: hidden;
+}
 .search-box {
   width: 30vw;
 }
