@@ -15,11 +15,6 @@ const CompanySchema = new Schema({
   website: {
     type: String,
   },
-  stream: [
-    {
-      type: String,
-    },
-  ],
   eligibility: {
     tenth: {
       type: Number,
@@ -32,6 +27,9 @@ const CompanySchema = new Schema({
     },
     batch: {
       type: Number,
+    },
+    stream: {
+      type: String,
     },
   },
   position: {
