@@ -6,21 +6,27 @@ const StudentSchema = new Schema({
     type: Number,
     default: 0,
   },
+  name: {
+    type: String,
+  },
   uid: {
     type: String,
   },
   email: {
     type: String,
   },
-  name: {
+  password: {
     type: String,
   },
-  gender: {
+  phone: {
     type: String,
-    enum: ["Male", "Female", "Others"],
   },
   dob: {
     type: Date,
+  },
+  gender: {
+    type: String,
+    enum: ["Male", "Female"],
   },
   university: {
     university: {
@@ -79,9 +85,6 @@ const StudentSchema = new Schema({
       type: String,
     },
   },
-  phone: {
-    type: String,
-  },
   resume: {
     url: {
       type: String,
@@ -96,9 +99,6 @@ const StudentSchema = new Schema({
       ref: "Company",
     },
   ],
-  password: {
-    type: String,
-  },
 });
 
 const Student = mongoose.model("Student", StudentSchema);

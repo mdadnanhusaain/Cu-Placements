@@ -108,6 +108,27 @@ body {
   box-shadow: 0.5rem 0.5rem 0.5rem #929598c8;
 }
 
+#dropArea {
+  padding: 0;
+  border: 0.15rem dashed #929da9;
+  border-radius: 0.5rem;
+}
+
+.resume-box {
+  width: 100%;
+}
+
+#drop-text {
+  margin: 0;
+}
+
+.drop-message {
+  height: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .company-form {
   background-color: #323165a9;
   color: whitesmoke;
