@@ -7,6 +7,8 @@ const path = require("path");
 const app = express();
 
 const Company = require("./models/company.js");
+const Admin = require("./models/admin.js");
+const Student = require("./models/student.js");
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
@@ -63,16 +65,28 @@ app.get("/editProfile", (req, res) => {
 app.get("/Alogin", (req, res) => {
   res.render("user/ALogin.ejs");
 });
+app.post("/Alogin", (req, res) => {
+  res.render("user/ALogin.ejs");
+});
 
 app.get("/Asignup", (req, res) => {
+  res.render("user/ASignup.ejs");
+});
+app.post("/Asignup", (req, res) => {
   res.render("user/ASignup.ejs");
 });
 
 app.get("/Slogin", (req, res) => {
   res.render("user/SLogin.ejs");
 });
+app.post("/Slogin", (req, res) => {
+  res.render("user/SLogin.ejs");
+});
 
 app.get("/Ssignup", (req, res) => {
+  res.render("user/SSignup.ejs");
+});
+app.post("/Ssignup", (req, res) => {
   res.render("user/SSignup.ejs");
 });
 
