@@ -167,17 +167,22 @@
       </div>
       <hr class="hr" />
       <div class="row">
-        <div class="mb-3">
-          <label for="resume" class="form-label">Resume</label>
-          <input
-            type="file"
-            class="form-control"
-            id="resume"
-            accept="application/pdf"
-          />
+        <div class="resume-box">
+          <label for="resume" class="form-label col-md-12">Resume</label>
+          <label for="resume" id="dropArea" class="form-control col-md-12">
+            <input
+              type="file"
+              class="form-control"
+              id="resume"
+              accept="application/pdf"
+            />
+            <div class="drop-message">
+              <p id="drop-text"><b>Select a PDF</b> or drag it here</p>
+            </div>
+          </label>
         </div>
       </div>
-      <div class="mb-3 form-check">
+      <div class="my-3 form-check">
         <input type="checkbox" class="form-check-input" id="exampleCheck1" />
         <label class="form-check-label" for="exampleCheck1">Remember me</label>
       </div>
@@ -185,3 +190,9 @@
     </form>
   </div>
 </div>
+
+<script src="/js/dragAndDrop.js"></script>
+<script>
+  inputFile = document.getElementById("resume");
+  console.log(inputFile.files);
+</script>
