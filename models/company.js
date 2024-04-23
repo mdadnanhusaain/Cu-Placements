@@ -5,9 +5,10 @@ const CompanySchema = new Schema({
   name: {
     type: String,
   },
+
   dtype: {
     type: String,
-    enum: ["On Campus", "Virtual"],
+    enum: ["oncampus", "virtual"],
   },
   dDate: {
     type: String,
@@ -15,11 +16,9 @@ const CompanySchema = new Schema({
   website: {
     type: String,
   },
-  stream: [
-    {
-      type: String,
-    },
-  ],
+  desc: {
+    type: String,
+  },
   eligibility: {
     tenth: {
       type: Number,
@@ -27,24 +26,50 @@ const CompanySchema = new Schema({
     twelfth: {
       type: Number,
     },
+    branch: {
+      type: String,
+    },
     cgpa: {
       type: Number,
     },
     batch: {
       type: Number,
     },
+    stream: {
+      type: String,
+    },
+    gap: {
+      type: String,
+    },
   },
-  position: {
-    type: String,
+  jd: {
+    position: {
+      type: String,
+    },
+    package: {
+      type: String,
+    },
+
+    location: {
+      city: {
+        type: String,
+      },
+      state: {
+        type: String,
+      },
+    },
+
+    bond: {
+      type: String,
+    },
   },
-  location: {
-    type: String,
-  },
-  package: {
-    type: String,
-  },
-  bond: {
-    type: String,
+  file: {
+    url: {
+      type: String,
+    },
+    filename: {
+      type: String,
+    },
   },
   processes: [
     {

@@ -23,19 +23,27 @@ const StudentSchema = new Schema({
     type: Date,
   },
   university: {
-    type: String,
-  },
-  college: {
-    type: String,
-  },
-  branch: {
-    type: String,
-  },
-  stream: {
-    type: String,
-  },
-  cgpa: {
-    type: Number,
+    university: {
+      type: String,
+    },
+    college: {
+      type: String,
+    },
+    branch: {
+      type: String,
+    },
+    stream: {
+      type: String,
+    },
+    cgpa: {
+      type: Number,
+    },
+    gap: {
+      type: Number,
+    },
+    batch: {
+      type: Number,
+    },
   },
   tenth: {
     percentage: {
@@ -60,6 +68,9 @@ const StudentSchema = new Schema({
     },
   },
   hometown: {
+    address: {
+      type: String,
+    },
     city: {
       type: String,
     },
@@ -67,9 +78,6 @@ const StudentSchema = new Schema({
     state: {
       type: String,
     },
-  },
-  gap: {
-    type: Number,
   },
   phone: {
     type: String,
@@ -81,9 +89,6 @@ const StudentSchema = new Schema({
     filename: {
       type: String,
     },
-  },
-  batch: {
-    type: Number,
   },
   companies: [
     {

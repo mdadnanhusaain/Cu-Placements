@@ -7,7 +7,6 @@ body {
 
 .t-limit {
   white-space: wrap;
-
   text-overflow: ellipsis;
   max-width: 15rem;
 }
@@ -68,7 +67,6 @@ body {
 .form-container {
   padding: 2rem;
   border-radius: 1rem;
-
   background-color: #b17d7987;
   box-shadow: 0.5rem 0.5rem 0.5rem #b17d79;
 }
@@ -83,21 +81,20 @@ body {
   border-radius: 1rem;
 }
 .footer {
-  background-color: #888;
-  color: #eee;
-  height: 3rem;
   display: flex;
-  text-align: center;
   justify-content: center;
   align-items: center;
-  margin: 4rem 0 0 0;
+  text-align: center;
+  color: #eee;
+  background-color: #888;
+  height: 4rem;
+  margin-top: 3rem;
   box-shadow: 0 -0.1rem 1rem #aaa;
 }
 
 .student-form {
   background-color: #bfcddc;
   box-shadow: 0.5rem 0.5rem 0.5rem #929598c8;
-
   border-radius: 1rem;
 }
 
@@ -130,4 +127,20 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.company-form {
+  background-color: #323165a9;
+  color: whitesmoke;
+  border-radius: 1rem;
+  box-shadow: 0.5rem 0.5rem 0.25rem #323165a9;
+}
+
+.text-area {
+  resize: none;
+  height: 7rem;
+}
+
+.pdf-logo {
+  width: 2rem;
 }

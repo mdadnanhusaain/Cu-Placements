@@ -13,21 +13,41 @@
         </div>
         <div class="mb-3 col-md-6">
           <label for="name" class="form-label">Name</label>
-          <input type="text" class="form-control" id="name" />
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            name="student[name]"
+          />
         </div>
         <div class="mb-3 col-md-6">
           <label for="uid" class="form-label">UID</label>
-          <input type="text" class="form-control" id="uid" />
+          <input
+            type="text"
+            class="form-control"
+            id="uid"
+            name="student[uid]"
+          />
         </div>
       </div>
       <div class="row">
         <div class="mb-3 col-md-6">
           <label for="email" class="form-label">Email</label>
-          <input type="email" class="form-control" id="email" />
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            name="student[email]"
+          />
         </div>
         <div class="mb-3 col-md-6">
           <label for="password" class="form-label">Password</label>
-          <input type="password" class="form-control" id="password" />
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            name="student[password]"
+          />
         </div>
       </div>
       <div class="row">
@@ -73,35 +93,70 @@
       <div class="row">
         <div class="mb-3 col-md-6">
           <label for="uname" class="form-label">University Name</label>
-          <input type="text" class="form-control" id="uname" />
+          <input
+            type="text"
+            class="form-control"
+            id="uname"
+            name="student[university][university]"
+          />
         </div>
         <div class="mb-3 col-md-6">
           <label for="cname" class="form-label">College Name</label>
-          <input type="text" class="form-control" id="cname" />
+          <input
+            type="text"
+            class="form-control"
+            id="cname"
+            name="student[university][college]"
+          />
         </div>
       </div>
       <div class="row">
         <div class="mb-3 col-md-6">
           <label for="branch" class="form-label">Branch</label>
-          <input type="text" class="form-control" id="branch" />
+          <input
+            type="text"
+            class="form-control"
+            id="branch"
+            name="student[university][branch]"
+          />
         </div>
         <div class="mb-3 col-md-6">
           <label for="stream" class="form-label">Stream</label>
-          <input type="text" class="form-control" id="stream" />
+          <input
+            type="text"
+            class="form-control"
+            id="stream"
+            name="student[university][stream]"
+          />
         </div>
       </div>
       <div class="row">
         <div class="mb-3 col-md-4">
           <label for="cgpa" class="form-label">CGPA</label>
-          <input type="number" class="form-control" id="cgpa" />
+          <input
+            type="number"
+            class="form-control"
+            id="cgpa"
+            name="student[university][cgpa]"
+          />
         </div>
         <div class="mb-3 col-md-4">
           <label for="gap" class="form-label">Gap</label>
-          <input type="number" class="form-control" id="gap" />
+          <input
+            type="number"
+            class="form-control"
+            id="gap"
+            name="student[university][gap]"
+          />
         </div>
         <div class="mb-3 col-md-4">
           <label for="batch" class="form-label">Batch</label>
-          <input type="number" class="form-control" id="batch" />
+          <input
+            type="number"
+            class="form-control"
+            id="batch"
+            name="student[university][batch]"
+          />
         </div>
       </div>
       <br />
@@ -118,31 +173,61 @@
       <div class="row">
         <div class="mb-3 col-md-6">
           <label for="tenper" class="form-label">10th Percentage</label>
-          <input type="number" class="form-control" id="tenper" />
+          <input
+            type="number"
+            class="form-control"
+            id="tenper"
+            name="student[tenth][Percentage]"
+          />
         </div>
         <div class="mb-3 col-md-6">
           <label for="tweper" class="form-label">12th Percentage</label>
-          <input type="number" class="form-control" id="tweper" />
+          <input
+            type="number"
+            class="form-control"
+            id="tweper"
+            name="student[twelfth][Percentage]"
+          />
         </div>
       </div>
       <div class="row mt-4">
         <div class="mb-3 col-md-6">
           <label for="tenb" class="form-label">10th Board</label>
-          <input type="text" class="form-control" id="tenb" />
+          <input
+            type="text"
+            class="form-control"
+            id="tenb"
+            name="student[tenth][board]"
+          />
         </div>
         <div class="mb-3 col-md-6">
           <label for="tweb" class="form-label">12th Board</label>
-          <input type="text" class="form-control" id="tweb" />
+          <input
+            type="text"
+            class="form-control"
+            id="tweb"
+            name="student[twelfth][board]"
+          />
         </div>
       </div>
       <div class="row">
         <div class="mb-3 col-md-6">
           <label for="tens" class="form-label">10th School</label>
-          <input type="text" class="form-control" id="tens" />
+          <input
+            type="text"
+            class="form-control"
+            id="tens"
+            name="student[tenth][school]"
+          />
         </div>
         <div class="mb-3 col-md-6">
           <label for="twes" class="form-label">12th School</label>
-          <input type="text" class="form-control" id="twes" />
+          <input
+            type="text"
+            class="form-control"
+            id="twes"
+            name="student[twelfth][school]"
+          />
         </div>
       </div>
       <div class="row mt-4">
@@ -153,16 +238,31 @@
       </div>
       <div class="mb-3">
         <label for="address" class="form-label">Full Address</label>
-        <input type="text" class="form-control" id="address" />
+        <input
+          type="text"
+          class="form-control"
+          id="address"
+          name="student[hometown][address]"
+        />
       </div>
       <div class="row">
         <div class="mb-3 col-md-6">
           <label for="city" class="form-label">City</label>
-          <input type="text" class="form-control" id="city" />
+          <input
+            type="text"
+            class="form-control"
+            id="city"
+            name="student[hometown][city]"
+          />
         </div>
         <div class="mb-3 col-md-6">
           <label for="state" class="form-label">State</label>
-          <input type="text" class="form-control" id="state" />
+          <input
+            type="text"
+            class="form-control"
+            id="state"
+            name="student[hometown][state]"
+          />
         </div>
       </div>
       <hr class="hr" />

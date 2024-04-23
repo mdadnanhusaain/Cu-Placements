@@ -1,3 +1,253 @@
 <% layout("/layouts/boilerplate.ejs") %>
+<div class="row">
+  <div class="student-form col-8 offset-2 px-5 py-4">
+    <h1 class="form-heading text-center">Add Company</h1>
+    <br /><br />
 
-<h1>Add Company</h1>
+    <form
+      action="/listings"
+      method="POST"
+      class="needs-validation"
+      novalidate
+      enctype="multipart/form-data"
+    >
+      <div class="row">
+        <div class="label">
+          <label for="" class="form-label"><h3>Company description</h3></label>
+          <hr class="hr" />
+        </div>
+        <div class="mb-3 col-md-6">
+          <label for="cname" class="form-label">Company Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="cname"
+            name="company[name]"
+            required
+          />
+        </div>
+
+        <div class="mb-3 col-md-6">
+          <label for="cweb" class="form-label">Company Website</label>
+          <input
+            type="text"
+            class="form-control"
+            id="cweb"
+            name="company[website]"
+            required
+          />
+        </div>
+
+        <div class="mb-3 col-md-6">
+          <label for="ddate" class="form-label">Date of Drive</label>
+          <input
+            type="date"
+            class="form-control"
+            id="ddate"
+            required
+            name="company[dDate]"
+          />
+        </div>
+        <div class="mb-3 col-md-4">
+          <label for="" class="form-label">Type of Drive</label>
+          <br />
+          <div
+            class="g-options d-flex justify-content-between col-md-10 align-items-center"
+          >
+            <div>
+              <input
+                type="radio"
+                class="form-check-input"
+                id="on-campus"
+                name="company[dtype]"
+                value="oncampus"
+                required
+              />
+              <label for="on-campus" class="form-label">On-campus</label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                class="form-check-input"
+                id="female"
+                name="company[dtype]"
+                value="virtual"
+                required
+              />
+              <label for="female" class="form-label">Virtual</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="mb-3 col-md-12">
+          <label for="desc" class="form-label">About Company</label>
+          <textarea
+            class="form-control text-area"
+            id="desc"
+            name="company[desc]"
+            required
+          ></textarea>
+        </div>
+      </div>
+      <div class="mt-3">
+        <label for="" class="form-label"><h3>Eligibility</h3></label>
+      </div>
+      <hr class="hr" />
+
+      <div class="row">
+        <div class="mb-3 col-md-6">
+          <label for="tenper" class="form-label">10th Percentage</label>
+          <input
+            type="number"
+            class="form-control"
+            id="tenper"
+            required
+            name="company[eligibility][tenth]"
+          />
+        </div>
+        <div class="mb-3 col-md-6">
+          <label for="tweper" class="form-label">12th Percentage</label>
+          <input
+            type="number"
+            class="form-control"
+            id="tweper"
+            required
+            name="company[eligibility][twelfth]"
+          />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="mb-3 col-md-6">
+          <label for="branch" class="form-label">Branch</label>
+          <input
+            type="text"
+            class="form-control"
+            id="branch"
+            required
+            name="company[eligibility][branch]"
+          />
+        </div>
+        <div class="mb-3 col-md-6">
+          <label for="stream" class="form-label">Stream</label>
+          <input
+            type="text"
+            class="form-control"
+            id="stream"
+            required
+            name="company[eligibility][stream]"
+          />
+        </div>
+        <div class="mb-3 col-md-4">
+          <label for="batch" class="form-label">Batch</label>
+          <input
+            type="number"
+            class="form-control"
+            id="batch"
+            required
+            name="company[eligibility][batch]"
+          />
+        </div>
+        <div class="mb-3 col-md-4">
+          <label for="cgpa" class="form-label">CGPA</label>
+          <input
+            type="number"
+            class="form-control"
+            id="cgpa"
+            required
+            name="company[eligibility][cgpa]"
+          />
+        </div>
+        <div class="mb-3 col-md-4">
+          <label for="gap" class="form-label">Gap</label>
+          <input
+            type="number"
+            class="form-control"
+            id="gap"
+            required
+            name="company[eligibility][gap]"
+          />
+        </div>
+      </div>
+
+      <br />
+
+      <div class="row mt-4">
+        <div class="label">
+          <label for="" class="form-label"><h3>Job description</h3></label>
+          <hr class="hr" />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="mb-3 col-md-6">
+          <label for="position" class="form-label">Position</label>
+          <input
+            type="text"
+            class="form-control"
+            id="position"
+            required
+            name="company[jd][position]"
+          />
+        </div>
+        <div class="mb-3 col-md-6">
+          <label for="salary" class="form-label">Pay package</label>
+          <input
+            type="text"
+            class="form-control"
+            id="salary"
+            required
+            name="company[jd][package]"
+          />
+        </div>
+        <div class="mb-3 col-md-6">
+          <label for="city" class="form-label">City</label>
+          <input
+            type="text"
+            class="form-control"
+            id="city"
+            required
+            name="company[jd][location][city]"
+          />
+        </div>
+        <div class="mb-3 col-md-6">
+          <label for="state" class="form-label">State</label>
+          <input
+            type="text"
+            class="form-control"
+            id="state"
+            required
+            name="company[jd][location][state]"
+          />
+        </div>
+        <div class="mb-3 col-md-6">
+          <label for="bond" class="form-label">Bond</label>
+          <input
+            type="text"
+            class="form-control"
+            id="bond"
+            required
+            name="company[jd][bond]"
+          />
+        </div>
+
+        <div class="mb-3 col-md-6">
+          <label for="arole" class="form-label">About role</label>
+          <div class="mb-3">
+            <input
+              type="file"
+              class="form-control"
+              id="arole"
+              accept="application/pdf"
+              required
+            />
+          </div>
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-secondary">Submit</button>
+    </form>
+  </div>
+</div>
