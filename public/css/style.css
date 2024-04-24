@@ -1,6 +1,15 @@
 body {
   overflow-x: hidden;
 }
+
+.hr {
+  margin: 0;
+}
+
+.label {
+  margin: 1rem 0 1rem 0;
+}
+
 .search-box {
   width: 30vw;
 }
@@ -21,6 +30,22 @@ body {
 
 .card img {
   width: 100%;
+}
+
+.card-img {
+  border-radius: 1rem 1rem 0 0;
+  height: 13rem;
+  object-fit: cover;
+}
+
+.card-body .label {
+  display: inline;
+  text-decoration: underline;
+  font-weight: 700;
+}
+
+.card-body .col {
+  margin: 0.2rem 0;
 }
 
 .hero-image {
@@ -54,32 +79,17 @@ body {
   background-color: #333;
 }
 
-.card-text span {
-  font-weight: 600;
-  text-decoration: underline;
-  display: block;
-}
-
 .container {
   margin-top: 2rem;
 }
 
-.form-container {
+.admin-form {
   padding: 2rem;
   border-radius: 1rem;
   background-color: #b17d7987;
   box-shadow: 0.5rem 0.5rem 0.5rem #b17d79;
 }
 
-.form-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin: auto;
-  width: 35%;
-  padding: 2rem;
-  border-radius: 1rem;
-}
 .footer {
   display: flex;
   justify-content: center;
@@ -98,6 +108,12 @@ body {
   border-radius: 1rem;
 }
 
+.company-form {
+  background-color: #d0e3ff;
+  border-radius: 1rem;
+  box-shadow: 0.5rem 0.5rem 0.25rem #193969;
+}
+
 .form-heading {
   font-family: "Playfair Display SC", serif;
   font-weight: 700;
@@ -114,10 +130,6 @@ body {
   border-radius: 0.5rem;
 }
 
-.resume-box {
-  width: 100%;
-}
-
 #drop-text {
   margin: 0;
 }
@@ -127,13 +139,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.company-form {
-  background-color: #323165a9;
-  color: whitesmoke;
-  border-radius: 1rem;
-  box-shadow: 0.5rem 0.5rem 0.25rem #323165a9;
 }
 
 .text-area {

@@ -1,70 +1,42 @@
 <% layout("/layouts/boilerplate.ejs") %>
 
-<div class="contain d-flex justify-content-evenly flex-wrap my-5">
+<div></div>
+
+<div class="d-flex justify-content-evenly flex-wrap">
+  <% for(let i in companies) { let company = companies[i]%>
   <div class="card m-2" style="width: 20rem">
     <img
-      src="https://logosmarcas.net/wp-content/uploads/2020/06/Accenture-Logo.png"
+      src="<%= company.file.image.url %>"
       class="card-img border-bottom"
-      alt="..."
+      alt="<%= company.file.image.filename %>"
     />
 
     <div class="card-body d-flex justify-content-between flex-column">
       <div class="card-content mb-4">
-        <h5 class="card-title">Accenture</h5>
-        <p class="card-text t-limit">
-          <span>Role:</span> Packaged App Development Associate/System and
-          Application Services Associate
-        </p>
-        <p class="card-text t-limit">
-          <span>Location:</span> Bangalore/Hyderabad/Pune/
-          Mumbai/Chennai/Gurugram/ Kolkata/Indore/Jaipur/ Coimbatore
-        </p>
+        <h5 class="card-title">
+          <%= company.name %>
+          <hr class="hr" />
+        </h5>
+        <div class="card-text mt-4">
+          <div class="row d-flex flex-column">
+            <div class="col">
+              <div class="label">Role:</div>
+              <%= company.jd.position %>
+            </div>
+            <div class="col">
+              <div class="label">Location:</div>
+              <%= company.jd.location.city %>, <%= company.jd.location.state %>
+            </div>
+            <div class="col">
+              <div class="label">Package:</div>
+              <%= company.jd.package %>
+            </div>
+          </div>
+        </div>
       </div>
 
       <a href="#" class="btn btn-primary">Apply Now</a>
     </div>
   </div>
-
-  <div class="card m-2" style="width: 20rem">
-    <img
-      src="https://akm-img-a-in.tosshub.com/businesstoday/images/story/202106/tcs_logo_1200_020621101143.jpg"
-      class="card-img border-bottom"
-      alt="..."
-    />
-
-    <div class="card-body d-flex justify-content-between flex-column">
-      <div class="card-content mb-4">
-        <h5 class="card-title">Tata Consultansy Services</h5>
-        <p class="card-text t-limit">
-          <span>Role:</span> Packaged App Development Associate/System and
-          Application Services Associate
-        </p>
-        <p class="card-text t-limit">
-          <span>Location:</span> Bangalore/Hyderabad/Pune/
-          Mumbai/Chennai/Gurugram/ Kolkata/Indore/Jaipur/ Coimbatore
-        </p>
-      </div>
-      <a href="#" class="btn btn-primary">Apply Now</a>
-    </div>
-  </div>
-
-  <div class="card m-2" style="width: 20rem">
-    <img
-      src="https://th.bing.com/th/id/OIP.SRS0nRJWVEJemiwWBz0mQAAAAA?rs=1&pid=ImgDetMain"
-      class="card-img border-bottom"
-      alt="..."
-    />
-
-    <div class="card-body d-flex justify-content-between flex-column">
-      <div class="card-content mb-4">
-        <h5 class="card-title">Nxtwave Disruptive Technologies</h5>
-        <p class="card-text t-limit">
-          <span>Role:</span> Packaged App Development Associate/System and
-          Application Services Associate
-        </p>
-        <p class="card-text t-limit"><span>Location:</span> Coimbatore</p>
-      </div>
-      <a href="#" class="btn btn-primary">Apply Now</a>
-    </div>
-  </div>
+  <% } %>
 </div>

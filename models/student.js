@@ -18,6 +18,14 @@ const StudentSchema = new Schema({
   password: {
     type: String,
   },
+  image: {
+    url: {
+      type: String,
+    },
+    filename: {
+      type: String,
+    },
+  },
   phone: {
     type: String,
   },
