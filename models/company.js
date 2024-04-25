@@ -38,7 +38,7 @@ const CompanySchema = new Schema({
       type: Number,
     },
     gap: {
-      type: String,
+      type: Number,
     },
   },
   jd: {
