@@ -11,7 +11,7 @@ const AdminSchema = new Schema({
   email: {
     type: String,
   },
-  uid: {
+  eid: {
     type: String,
   },
   password: {
