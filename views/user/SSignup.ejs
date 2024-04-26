@@ -5,7 +5,13 @@
     <h1 class="form-heading text-center">Student SignUp</h1>
     <br /><br />
 
-    <form>
+    <form
+      action="/student/signup"
+      method="POST"
+      class="needs-validation"
+      novalidate
+      enctype="multipart/form-data"
+    >
       <div class="row">
         <div class="label">
           <label for="" class="form-label"><h3>Account Details</h3></label>
@@ -18,6 +24,8 @@
             class="form-control"
             id="name"
             name="student[name]"
+            value="TCS"
+            required
           />
         </div>
         <div class="mb-3 col-md-6">
@@ -27,6 +35,7 @@
             class="form-control"
             id="uid"
             name="student[uid]"
+            required
           />
         </div>
       </div>
@@ -38,6 +47,7 @@
             class="form-control"
             id="email"
             name="student[email]"
+            required
           />
         </div>
         <div class="mb-3 col-md-6">
@@ -47,17 +57,18 @@
             class="form-control"
             id="password"
             name="student[password]"
+            required
           />
         </div>
       </div>
       <div class="row">
         <div class="mb-3 col-md-6">
           <label for="phone" class="form-label">Phone Number</label>
-          <input type="number" class="form-control" id="phone" />
+          <input type="number" class="form-control" id="phone" required />
         </div>
         <div class="mb-3 col-md-3">
           <label for="dob" class="form-label">Date of Birth</label>
-          <input type="date" class="form-control" id="dob" />
+          <input type="date" class="form-control" id="dob" required />
         </div>
         <div class="mb-3 col-md-3">
           <label for="" class="form-label">Gender</label>
@@ -71,6 +82,7 @@
                 class="form-check-input"
                 id="male"
                 name="gender"
+                required
               />
               <label for="male" class="form-label">Male</label>
             </div>
@@ -80,6 +92,7 @@
                 class="form-check-input"
                 id="female"
                 name="gender"
+                required
               />
               <label for="female" class="form-label">Female</label>
             </div>
@@ -98,6 +111,7 @@
             class="form-control"
             id="uname"
             name="student[university][university]"
+            required
           />
         </div>
         <div class="mb-3 col-md-6">
@@ -107,6 +121,7 @@
             class="form-control"
             id="cname"
             name="student[university][college]"
+            required
           />
         </div>
       </div>
@@ -118,6 +133,7 @@
             class="form-control"
             id="branch"
             name="student[university][branch]"
+            required
           />
         </div>
         <div class="mb-3 col-md-6">
@@ -127,6 +143,7 @@
             class="form-control"
             id="stream"
             name="student[university][stream]"
+            required
           />
         </div>
       </div>
@@ -138,6 +155,7 @@
             class="form-control"
             id="cgpa"
             name="student[university][cgpa]"
+            required
           />
         </div>
         <div class="mb-3 col-md-4">
@@ -147,6 +165,7 @@
             class="form-control"
             id="gap"
             name="student[university][gap]"
+            required
           />
         </div>
         <div class="mb-3 col-md-4">
@@ -156,6 +175,7 @@
             class="form-control"
             id="batch"
             name="student[university][batch]"
+            required
           />
         </div>
       </div>
@@ -178,6 +198,7 @@
             class="form-control"
             id="tenper"
             name="student[tenth][percentage]"
+            required
           />
         </div>
         <div class="mb-3 col-md-6">
@@ -187,6 +208,7 @@
             class="form-control"
             id="tweper"
             name="student[twelfth][percentage]"
+            required
           />
         </div>
       </div>
@@ -198,6 +220,7 @@
             class="form-control"
             id="tenb"
             name="student[tenth][board]"
+            required
           />
         </div>
         <div class="mb-3 col-md-6">
@@ -207,6 +230,7 @@
             class="form-control"
             id="tweb"
             name="student[twelfth][board]"
+            required
           />
         </div>
       </div>
@@ -218,6 +242,7 @@
             class="form-control"
             id="tens"
             name="student[tenth][school]"
+            required
           />
         </div>
         <div class="mb-3 col-md-6">
@@ -227,6 +252,7 @@
             class="form-control"
             id="twes"
             name="student[twelfth][school]"
+            required
           />
         </div>
       </div>
@@ -243,6 +269,7 @@
           class="form-control"
           id="address"
           name="student[hometown][address]"
+          required
         />
       </div>
       <div class="row">
@@ -253,6 +280,7 @@
             class="form-control"
             id="city"
             name="student[hometown][city]"
+            required
           />
         </div>
         <div class="mb-3 col-md-6">
@@ -262,17 +290,32 @@
             class="form-control"
             id="state"
             name="student[hometown][state]"
+            required
           />
         </div>
       </div>
       <hr class="hr" />
       <div class="row">
-        <div class="w-100">
-          <label for="resume" class="form-label col-md-12">Resume</label>
-          <label for="resume" id="dropArea" class="form-control col-md-12">
+        <div class="w-50">
+          <label for="photo" class="form-label col-md-12">Profile Photo</label>
+          <label for="photo" class="dropArea form-control col-md-12">
             <input
               type="file"
               class="form-control"
+              id="photo"
+              accept="image/*"
+            />
+            <div class="drop-message">
+              <p id="drop-text"><b>Select an Image</b> or drag it here</p>
+            </div>
+          </label>
+        </div>
+        <div class="w-50">
+          <label for="resume" class="form-label col-md-12">Resume</label>
+          <label for="resume" class="dropArea form-control col-md-12">
+            <input
+              type="file"
+              class="form-control pdf"
               id="resume"
               accept="application/pdf"
             />
@@ -292,7 +335,3 @@
 </div>
 
 <script src="/js/dragAndDrop.js"></script>
-<script>
-  inputFile = document.getElementById("resume");
-  console.log(inputFile.files);
-</script>

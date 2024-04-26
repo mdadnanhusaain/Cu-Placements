@@ -41,9 +41,6 @@
               >Home</a
             >
           </li>
-          <li class="nav-item">
-            <a class="nav-link text-light" href="/company/add">Add Company</a>
-          </li>
           <li class="nav-item dropdown">
             <a
               class="nav-link dropdown-toggle text-light"
@@ -51,14 +48,11 @@
               data-bs-toggle="dropdown"
               aria-expanded="false"
             >
-              Login
+              Company
             </a>
             <ul class="dropdown-menu">
               <li>
-                <a class="dropdown-item" href="/admin/login">Admin</a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="/student/login">Student</a>
+                <a class="dropdown-item" href="/company/add">Add Company</a>
               </li>
             </ul>
           </li>
@@ -69,14 +63,40 @@
               data-bs-toggle="dropdown"
               aria-expanded="false"
             >
-              SignUp
+              Admin
             </a>
             <ul class="dropdown-menu">
               <li>
-                <a class="dropdown-item" href="/admin/signup">Admin</a>
+                <a class="dropdown-item" href="/admin/login">Login</a>
               </li>
               <li>
-                <a class="dropdown-item" href="/student/signup">Student</a>
+                <a class="dropdown-item" href="/admin/signup">Signup</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle text-light"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Student
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <a class="dropdown-item" href="/student/login">Login</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="/student/signup">Signup</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="/student/profile">Profile</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="/student/myCompanies"
+                  >My Companies</a
+                >
               </li>
             </ul>
           </li>

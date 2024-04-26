@@ -149,3 +149,9 @@ body {
 .pdf-logo {
   width: 2rem;
 }
+
+.dropArea img {
+  height: 90%;
+  width: 90%;
+  object-fit: cover;
+}
