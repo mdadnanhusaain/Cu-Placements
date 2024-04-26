@@ -7,7 +7,7 @@
     <br />
 
     <form
-      action="/company/edit"
+      action="/company/edit/<%= company._id %>"
       method="POST"
       class="needs-validation"
       novalidate
@@ -25,7 +25,7 @@
             class="form-control"
             id="cname"
             name="company[name]"
-            value="TCS "
+            value="<%= company.name %>"
             required
           />
         </div>
@@ -37,7 +37,7 @@
             class="form-control"
             id="cweb"
             name="company[website]"
-            value="https://www.tcs.com/careers/india/tcs-fresher-hiring-nqt-2024"
+            value="<%= company.website %>"
             required
           />
         </div>
@@ -50,6 +50,7 @@
             id="ddate"
             required
             name="company[dDate]"
+            value="<%= company.dDate %>"
           />
         </div>
         <div class="mb-3 col-md-6">
@@ -57,26 +58,16 @@
           <br />
           <div class="col-8 d-flex justify-content-between">
             <div>
-              <input
-                type="radio"
-                class="form-check-input"
-                id="on-campus"
-                name="company[dtype]"
-                value="oncampus"
-                required
-              />
+              <input type="radio" class="form-check-input" id="on-campus"
+              name="company[dtype]" value="oncampus" required <%
+              if(company.dtype === "oncampus") {%> checked <% } %> />
               <label for="on-campus" class="form-label">On-campus</label>
             </div>
 
             <div>
-              <input
-                type="radio"
-                class="form-check-input"
-                id="female"
-                name="company[dtype]"
-                value="virtual"
-                required
-              />
+              <input type="radio" class="form-check-input" id="female"
+              name="company[dtype]" value="virtual" required <% if(company.dtype
+              === "virtual") {%> checked <% } %> />
               <label for="female" class="form-label">Virtual</label>
             </div>
           </div>
@@ -88,7 +79,10 @@
             id="desc"
             name="company[desc]"
             required
-          ></textarea>
+          >
+<%= company.desc
+          %></textarea
+          >
         </div>
       </div>
 
@@ -105,6 +99,7 @@
             id="tenper"
             required
             name="company[eligibility][tenth]"
+            value="<%= company.eligibility.tenth%>"
           />
         </div>
         <div class="mb-3 col-md-6">
@@ -115,6 +110,7 @@
             id="tweper"
             required
             name="company[eligibility][twelfth]"
+            value="<%= company.eligibility.twelfth%>"
           />
         </div>
 
@@ -126,6 +122,7 @@
             id="branch"
             required
             name="company[eligibility][branch]"
+            value="<%= company.eligibility.branch %>"
           />
         </div>
         <div class="mb-3 col-md-6">
@@ -136,6 +133,7 @@
             id="stream"
             required
             name="company[eligibility][stream]"
+            value="<%= company.eligibility.stream%>"
           />
         </div>
         <div class="mb-3 col-md-4">
@@ -146,6 +144,7 @@
             id="batch"
             required
             name="company[eligibility][batch]"
+            value="<%= company.eligibility.batch%>"
           />
         </div>
         <div class="mb-3 col-md-4">
@@ -156,6 +155,7 @@
             id="cgpa"
             required
             name="company[eligibility][cgpa]"
+            value="<%= company.eligibility.cgpa%>"
           />
         </div>
         <div class="mb-3 col-md-4">
@@ -166,6 +166,7 @@
             id="gap"
             required
             name="company[eligibility][gap]"
+            value="<%= company.eligibility.gap %>"
           />
         </div>
       </div>
@@ -184,6 +185,7 @@
             id="position"
             required
             name="company[jd][position]"
+            value="<%= company.jd.position%>"
           />
         </div>
         <div class="mb-3 col-md-6">
@@ -194,6 +196,7 @@
             id="salary"
             required
             name="company[jd][package]"
+            value="<%= company.jd.package%>"
           />
         </div>
         <div class="mb-3 col-md-6">
@@ -204,6 +207,7 @@
             id="city"
             required
             name="company[jd][location][city]"
+            value="<%= company.jd.location.city%>"
           />
         </div>
         <div class="mb-3 col-md-6">
@@ -214,6 +218,7 @@
             id="state"
             required
             name="company[jd][location][state]"
+            value="<%= company.jd.location.state%>"
           />
         </div>
         <div class="mb-3 col-md-6">
@@ -224,6 +229,7 @@
             id="bond"
             required
             name="company[jd][bond]"
+            value="<%= company.jd.bond%>"
           />
         </div>
       </div>
@@ -233,6 +239,36 @@
           <label for="" class="form-label"><h3>Upload Files</h3></label>
           <hr class="hr" />
         </div>
+
+        <div class="mb-3 col-md-6">
+          <label for="logo" class="form-label">Current Logo</label>
+
+          <div class="logoArea">
+            <img
+              class="curr-img"
+              src="<%= company.file.image.url %>"
+              alt="<%= company.file.image.filename %>"
+            />
+          </div>
+        </div>
+        <div class="mb-3 col-md-6">
+          <label for="arole" class="form-label">Current Job Description</label>
+          <label for="arole" class="jdArea col-md-12">
+            <div>
+              <a href="<%= company.file.jd.url %>">
+                <img src="<%= pdf %>" alt="" />
+              </a>
+            </div>
+            <div class="">
+              <a href="<%= company.file.jd.url %>">
+                <%= company.file.jd.filename %>
+              </a>
+            </div>
+          </label>
+        </div>
+
+        <br />
+
         <div class="mb-3 col-md-6">
           <label for="logo" class="form-label">Company Logo</label>
           <label for="logo" id="dropArea" class="form-control col-md-12">
@@ -271,7 +307,7 @@
         </div>
       </div>
 
-      <button type="submit" class="btn btn-secondary">Submit</button>
+      <button type="submit" class="btn btn-secondary mt-5">Edit Details</button>
     </form>
   </div>
 </div>

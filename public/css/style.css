@@ -114,6 +114,31 @@ body {
   box-shadow: 0.5rem 0.5rem 0.25rem #193969;
 }
 
+.curr-img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: cover;
+}
+
+.logoArea {
+  background-color: #fff;
+  border: 0.2rem solid #0f213c;
+  border-radius: 0.25rem;
+}
+
+.jdArea {
+  width: 100%;
+  /* height: 100%; */
+  /* background-color: #fff; */
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+}
+
+.jdArea img {
+  width: 50%;
+}
+
 .form-heading {
   font-family: "Playfair Display SC", serif;
   font-weight: 700;
