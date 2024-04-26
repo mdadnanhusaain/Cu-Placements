@@ -45,7 +45,6 @@ module.exports.addCompany = async (req, res) => {
 module.exports.editForm = async (req, res) => {
   let { id } = req.params;
   let company = await Company.findById(id);
-  console.log(company);
   res.render("pages/editCompany.ejs", { company });
 };
 
