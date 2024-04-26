@@ -22,6 +22,6 @@ router
 router
   .route("/edit/:id")
   .get(companyController.editForm)
-  .post(companyController.editCompany);
+  .post(companyFiles, companyController.editCompany);
 
 module.exports = router;

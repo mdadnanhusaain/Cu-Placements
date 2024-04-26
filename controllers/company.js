@@ -34,12 +34,11 @@ module.exports.addCompany = async (req, res) => {
     newCompany.file.jd.filename = jdFilename;
 
     let savedCompany = await newCompany.save();
-    console.log(savedCompany);
-
-    res.redirect("/");
+    console.log("New Company added : " + savedCompany);
   } catch (error) {
     console.log(error);
   }
+  res.redirect("/");
 };
 
 module.exports.editForm = async (req, res) => {
@@ -51,12 +50,18 @@ module.exports.editForm = async (req, res) => {
 module.exports.editCompany = async (req, res) => {
   try {
     let { id } = req.params;
-    console.log(id);
+
     let company = req.body.company;
     let newCompany = await Company.findByIdAndUpdate(id, { ...company });
 
-    if (typeof req.files !== "undefined") {
+    if (req.files["company[file][image]"] !== undefined) {
       let logoDetails = req.files["company[file][image]"][0];
+
+      newCompany.file.image.url = logoDetails.path;
+      newCompany.file.image.filename = logoDetails.originalname;
+    }
+
+    if (req.files["company[file][jd]"] !== undefined) {
       let jdDetails = req.files["company[file][jd]"][0];
 
       let jdFilename = jdDetails.originalname;
@@ -70,17 +75,14 @@ module.exports.editCompany = async (req, res) => {
       url = urlArray[0] + "upload/fl_attachment:" + jdFilename + urlArray[1];
       jdFilename = jdFilename + `.${jdFileExt}`;
 
-      newCompany.file.image.url = logoDetails.path;
-      newCompany.file.image.filename = logoDetails.originalname;
       newCompany.file.jd.url = url;
       newCompany.file.jd.filename = jdFilename;
     }
 
     let savedCompany = await newCompany.save();
-    console.log(savedCompany);
-
-    res.redirect("/");
+    console.log("Company Details edited : " + savedCompany);
   } catch (error) {
     console.log(error);
   }
+  res.redirect("/");
 };

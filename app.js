@@ -8,8 +8,6 @@ const ejsMate = require("ejs-mate");
 const multer = require("multer");
 
 const Company = require("./models/company.js");
-const Admin = require("./models/admin.js");
-const Student = require("./models/student.js");
 
 const { storage } = require("./config/cloudConfig.js");
 const upload = multer({ storage });

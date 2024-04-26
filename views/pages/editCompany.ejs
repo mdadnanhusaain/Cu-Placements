@@ -1,5 +1,4 @@
-<% layout("/layouts/boilerplate.ejs") %> <% layout("/layouts/boilerplate.ejs")
-%>
+<% layout("/layouts/boilerplate.ejs") %>
 
 <div class="row">
   <div class="company-form col-md-8 offset-md-2 px-5 py-4">
@@ -241,8 +240,7 @@
         </div>
 
         <div class="mb-3 col-md-6">
-          <label for="logo" class="form-label">Current Logo</label>
-
+          <label class="form-label">Current Logo</label>
           <div class="logoArea">
             <img
               class="curr-img"
@@ -251,19 +249,16 @@
             />
           </div>
         </div>
-        <div class="mb-3 col-md-6">
-          <label for="arole" class="form-label">Current Job Description</label>
-          <label for="arole" class="jdArea col-md-12">
-            <div>
-              <a href="<%= company.file.jd.url %>">
-                <img src="<%= pdf %>" alt="" />
-              </a>
-            </div>
-            <div class="">
-              <a href="<%= company.file.jd.url %>">
-                <%= company.file.jd.filename %>
-              </a>
-            </div>
+
+        <div class="mb-3 col-md-6 overflow-hidden">
+          <label for="curr-jd" class="form-label"
+            >Current Job Description</label
+          >
+          <label for="curr-jd" class="jdArea col-md-12">
+            <a href="<%= company.file.jd.url %>">
+              <img src="<%= pdf %>" alt="" class="pdf-logo" />
+              <label id="curr-jd"><%= company.file.jd.filename %></label>
+            </a>
           </label>
         </div>
 
@@ -271,7 +266,7 @@
 
         <div class="mb-3 col-md-6">
           <label for="logo" class="form-label">Company Logo</label>
-          <label for="logo" id="dropArea" class="form-control col-md-12">
+          <label for="logo" class="dropArea form-control col-md-12">
             <div class="mb-3">
               <input
                 type="file"
@@ -288,7 +283,7 @@
         </div>
         <div class="mb-3 col-md-6">
           <label for="arole" class="form-label">Job Description</label>
-          <label for="arole" id="dropArea" class="form-control col-md-12">
+          <label for="arole" class="dropArea form-control col-md-12">
             <div class="mb-3">
               <input
                 type="file"
@@ -309,3 +304,5 @@
     </form>
   </div>
 </div>
+
+<script src="/js/dragAndDrop.js"></script>
