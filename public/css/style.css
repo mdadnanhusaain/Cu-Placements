@@ -268,8 +268,8 @@ body {
 
 .profile-text .imgBx {
   position: relative;
-  width: 15rem;
-  height: 15rem;
+  width: 11rem;
+  height: 11rem;
   border-radius: 50%;
   overflow: hidden;
   border: 0.75rem solid #fff;
@@ -377,6 +377,57 @@ body {
 }
 
 .required:after {
-  content:" *";
+  content: " *";
   color: red;
+}
+
+/*about company  */
+
+.company-website a {
+  color: #fff;
+}
+
+.company-container {
+  grid-template-columns: 1fr 1fr;
+}
+
+.company-text {
+  color: #0b1a21;
+  letter-spacing: 1px;
+  text-align: justify;
+}
+
+.d-text {
+  color: #fff;
+  letter-spacing: 1px;
+  text-align: justify;
+}
+
+.about {
+  /* background-color: gray; */
+  padding: 0.3rem;
+  border-bottom: 3px solid rgba(255, 255, 255, 0.2);
+}
+
+.job-description .title {
+  text-transform: uppercase;
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.apply-btn {
+  position: absolute;
+  z-index: 100;
+  bottom: 3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: larger;
+  background-color: #1f485dd2;
+  color: #fff;
+}
+
+.apply-btn:hover {
+  background-color: #1f485dd2;
+  color: #fff;
 }
