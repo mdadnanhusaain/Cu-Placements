@@ -114,6 +114,10 @@ body {
   margin: 0.2rem 0;
 }
 
+.comp-buttons a {
+  width: 7rem;
+}
+
 .name1 {
   letter-spacing: 0.3rem;
 }
