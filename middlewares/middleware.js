@@ -32,15 +32,14 @@ module.exports.saveRedirectUrl = async (req, res, next) => {
 
 // Admin Validation
 module.exports.isAdmin = async (req, res, next) => {
-  let { id } = req.locals.currUser._id;
+  let id = res.locals.currUser._id;
   let user = await User.findById(id);
-  console.log(`Current user ID : ${id}`);
   if (user.role !== 1) {
     req.flash(
       "error",
-      "This account is not an Admin Account! Please login as Admin"
+      "This account is not an Admin Account! Please login as Admin to continue"
     );
-    return res.redirect(`/admin/login`);
+    return res.redirect(`/`);
   }
   next();
 };

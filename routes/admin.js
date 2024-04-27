@@ -14,4 +14,6 @@ router
   .get(adminController.signupForm)
   .post(adminController.signupAdmin);
 
+router.get("/logout", adminController.logout);
+
 module.exports = router;

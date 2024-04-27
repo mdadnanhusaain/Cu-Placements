@@ -5,7 +5,7 @@ const multer = require("multer");
 
 const studentController = require("../controllers/student.js");
 const wrapAsync = require("../utility/wrapAsync.js");
-const { saveRedirectUrl } = require("../middlewares/middleware.js");
+const { saveRedirectUrl, isAdmin } = require("../middlewares/middleware.js");
 
 const { storage } = require("../config/cloudConfig.js");
 const upload = multer({ storage });
@@ -39,10 +39,10 @@ router
   .get(studentController.editProfile)
   .post(studentFiles, wrapAsync(studentController.updateProfile));
 
-router.route("/myCompanies").get(studentController.companies);
+router.get("/myCompanies", studentController.companies);
+
+router.get("/all", isAdmin, studentController.allStudents);
 
 router.get("/logout", studentController.logout);
-
-router.get("/all", studentController.allStudents);
 
 module.exports = router;

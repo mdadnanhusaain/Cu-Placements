@@ -100,13 +100,6 @@ app.all("*", (req, res, next) => {
   next(new ExpressError(404, "Page Not Found"));
 });
 
-// Error handling Middleware
-app.use((err, req, res, next) => {
-  console.log(err);
-  let { statusCode = 500, message = "Something went wrong" } = err;
-  res.status(statusCode).render("error.ejs", { message });
-});
-
 app.listen(process.env.PORT, () => {
   console.log(`Server is listening on http://localhost:${process.env.PORT}`);
 });

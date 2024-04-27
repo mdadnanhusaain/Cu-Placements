@@ -87,3 +87,22 @@ module.exports.editCompany = async (req, res) => {
   }
   res.redirect("/");
 };
+
+module.exports.endDrive = async (req, res) => {
+  try {
+    let { id } = req.params;
+    let company = await Company.findById(id);
+    console.log(company);
+    company.active = 1;
+    company = await Company.findByIdAndUpdate(id, { ...company });
+    let savedCompany = await company.save();
+    console.log(`Drive for ${savedCompany.name} has ended now!`);
+    req.flash(
+      "success",
+      `Drive for ${savedCompany.name} has been ended successfully!`
+    );
+  } catch (err) {
+    console.log(err);
+  }
+  res.redirect("/");
+};

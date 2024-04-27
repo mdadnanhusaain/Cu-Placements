@@ -2,6 +2,10 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const CompanySchema = new Schema({
+  active: {
+    type: Number,
+    default: 0,
+  },
   name: {
     type: String,
   },
