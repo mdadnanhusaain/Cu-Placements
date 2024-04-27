@@ -92,3 +92,8 @@ module.exports.logout = (req, res, next) => {
     res.redirect("/");
   });
 };
+
+module.exports.allStudents = async (req, res, next) => {
+  let students = await User.find({ role: 0 }).exec();
+  res.render("pages/allStudents.ejs", { students });
+};
