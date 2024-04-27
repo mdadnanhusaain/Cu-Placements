@@ -130,7 +130,7 @@ body {
 }
 
 .student-form {
-  background-color: #bfcddc;
+  background-color: #bfcddcd2;
   box-shadow: 0.5rem 0.5rem 0.5rem #929598c8;
   border-radius: 1rem;
 }
@@ -364,4 +364,14 @@ body {
 .education-info ul li p {
   font-weight: 500;
   font-size: 1.1rem;
+}
+
+.edit-profile {
+  background-color: #003047d2;
+  color: #fff;
+}
+
+.edit-profile:hover {
+  background-color: #003047d2;
+  color: #fff;
 }
