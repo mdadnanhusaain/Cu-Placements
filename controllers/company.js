@@ -1,8 +1,9 @@
 const Company = require("../models/company.js");
 
-module.exports.about = (req, res) => {
+module.exports.about = async (req, res) => {
   let { id } = req.params;
-  res.render("pages/aboutCompany.ejs", { id });
+  let company = await Company.findById(id);
+  res.render("pages/aboutCompany.ejs", { company });
 };
 
 module.exports.addForm = (req, res) => {

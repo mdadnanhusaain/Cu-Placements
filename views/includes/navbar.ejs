@@ -34,6 +34,7 @@
       >
         <span class="navbar-toggler-icon"></span>
       </button>
+
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mb-2 mb-lg-0">
           <li class="nav-item">
@@ -41,21 +42,7 @@
               >Home</a
             >
           </li>
-          <li class="nav-item dropdown">
-            <a
-              class="nav-link dropdown-toggle text-light"
-              role="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              Company
-            </a>
-            <ul class="dropdown-menu">
-              <li>
-                <a class="dropdown-item" href="/company/add">Add Company</a>
-              </li>
-            </ul>
-          </li>
+          <% if(currUser === undefined) { %>
           <li class="nav-item dropdown">
             <a
               class="nav-link dropdown-toggle text-light"
@@ -90,16 +77,54 @@
               <li>
                 <a class="dropdown-item" href="/student/signup">Signup</a>
               </li>
+            </ul>
+          </li>
+          <% } else { %> <% if(currUser.role === 0 ) {%>
+          <li class="nav-item">
+            <a
+              class="nav-link text-light active"
+              aria-current="page"
+              href="/student/myCompanies"
+              >My Companies</a
+            >
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link nav-dropdown dropdown-toggle"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <div class="nav-img">
+                <img
+                  src="<%= currUser.file.image.url %>"
+                  alt="<%= currUser.file.image.filename %>"
+                />
+              </div>
+            </a>
+            <ul class="dropdown-menu">
               <li>
-                <a class="dropdown-item" href="/student/profile">Profile</a>
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="/student/profile/<%= currUser._id %>"
+                  >Profile</a
+                >
               </li>
+
               <li>
-                <a class="dropdown-item" href="/student/myCompanies"
-                  >My Companies</a
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="/<% if(currUser.role === 0) {%>student<% } else {%>admin<% }%>/logout"
+                  >Logout</a
                 >
               </li>
             </ul>
           </li>
+          <% } else { %>
+          <div class="div"></div>
+          <%} } %>
         </ul>
       </div>
     </div>

@@ -10,7 +10,7 @@ const UserSchema = new Schema({
   name: {
     type: String,
   },
-  uid: {
+  username: {
     type: String,
   },
   email: {

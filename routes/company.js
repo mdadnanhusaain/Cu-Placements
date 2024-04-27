@@ -2,26 +2,27 @@ const express = require("express");
 const router = express.Router();
 const multer = require("multer");
 
-const companyController = require("../controllers/company.js");
-
 const { storage } = require("../config/cloudConfig.js");
 const upload = multer({ storage });
 
-router.route("/about/:id").get(companyController.about);
+const wrapAsync = require("../utility/wrapAsync.js");
+const companyController = require("../controllers/company.js");
 
 let companyFiles = upload.fields([
   { name: "company[file][image]", maxCount: 1 },
   { name: "company[file][jd]", maxCount: 1 },
 ]);
 
+router.get("/about/:id", wrapAsync(companyController.about));
+
 router
   .route("/add")
   .get(companyController.addForm)
-  .post(companyFiles, companyController.addCompany);
+  .post(companyFiles, wrapAsync(companyController.addCompany));
 
 router
   .route("/edit/:id")
   .get(companyController.editForm)
-  .post(companyFiles, companyController.editCompany);
+  .post(companyFiles, wrapAsync(companyController.editCompany));
 
 module.exports = router;

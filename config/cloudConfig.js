@@ -10,7 +10,7 @@ cloudinary.config({
 const storage = new CloudinaryStorage({
   cloudinary: cloudinary,
   params: {
-    folder: "FinalYearProject",
+    folder: "test",
     allowedFormat: ["pdf", "png", "jpg", "jpeg"],
   },
 });

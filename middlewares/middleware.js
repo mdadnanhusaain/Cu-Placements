@@ -5,8 +5,8 @@ module.exports.isLoggedIn = (req, res, next) => {
   console.log(`Current User :- ${req.user}`);
   if (!req.isAuthenticated()) {
     req.session.redirectUrl = req.originalUrl;
-    req.flash("error", "You must be logged in to proceed!");
-    return res.redirect("/student/login");
+    req.flash("error", "You must be logged in to create listing!");
+    return res.redirect("/login");
   }
   next();
 };
@@ -25,7 +25,7 @@ module.exports.saveRedirectUrl = async (req, res, next) => {
       res.locals.redirectUrl = req.session.redirectUrl;
     }
   } catch (err) {
-    res.locals.redirectUrl = "/listings";
+    res.locals.redirectUrl = "/";
   }
   next();
 };

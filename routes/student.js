@@ -3,14 +3,22 @@ const router = express.Router();
 const passport = require("passport");
 const multer = require("multer");
 
+const studentController = require("../controllers/student.js");
 const wrapAsync = require("../utility/wrapAsync.js");
 const { saveRedirectUrl } = require("../middlewares/middleware.js");
-const studentController = require("../controllers/student.js");
+
+const { storage } = require("../config/cloudConfig.js");
+const upload = multer({ storage });
+
+let studentFiles = upload.fields([
+  { name: "student[file][image]", maxCount: 1 },
+  { name: "student[file][resume]", maxCount: 1 },
+]);
 
 router
   .route("/signup")
   .get(studentController.signupForm)
-  .post(wrapAsync(studentController.signupStudent));
+  .post(studentFiles, wrapAsync(studentController.signupStudent));
 
 router
   .route("/login")
@@ -24,13 +32,15 @@ router
     wrapAsync(studentController.loginStudent)
   );
 
-router.route("/profile").get(studentController.profile);
+router.route("/profile/:id").get(studentController.profile);
 
 router
   .route("/editProfile")
   .get(studentController.editProfile)
-  .post(wrapAsync(studentController.updateProfile));
+  .post(studentFiles, wrapAsync(studentController.updateProfile));
 
 router.route("/myCompanies").get(studentController.companies);
+
+router.get("/logout", studentController.logout);
 
 module.exports = router;
