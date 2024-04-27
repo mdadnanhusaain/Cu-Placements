@@ -4,12 +4,9 @@
   <div class="left-side">
     <div class="profile-text">
       <div class="imgBx">
-        <img
-          src="https://avatars.githubusercontent.com/u/95528731?v=4"
-          alt=""
-        />
+        <img src="<%= student.file.image.url  %>" alt="<%= student.file.image.filename  %>" />
       </div>
-      <h2>Vedansh Singh <br /><span>Chandigarh University</span></h2>
+      <h2><%= student.name  %> <br /><span>Chandigarh University</span></h2>
     </div>
     <div class="contact-info">
       <h3 class="title">Contact Info</h3>
@@ -17,34 +14,33 @@
       <ul>
         <li>
           <span class="icon"><i class="fa-solid fa-phone"></i></span>
-          <span class="text">6377257467</span>
+          <span class="text"><%= student.phone  %></span>
         </li>
 
         <li>
           <span class="icon"><i class="fa-solid fa-envelope"></i></span>
-          <span class="text">vedansh19singh@gmail.com</span>
+          <span class="text"><%= student.email  %></span>
         </li>
 
         <li>
           <span class="icon"><i class="fa-solid fa-calendar-days"></i></span>
-          <span class="text"> 14-08-2002 </span>
+          <span class="text"> <%= new Date(student.dob).toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' }) %> </span>
+
         </li>
         <li>
-          <span class="icon"
-            ><i class="fa-solid fa-person-half-dress"></i
-          ></span>
-          <span class="text"> Male </span>
+          <span class="icon"><i class="fa-solid fa-person-half-dress"></i></span>
+          <span class="text"> <%= student.gender %> </span>
         </li>
         <li>
           <span class="icon"><i class="fa-solid fa-location-dot"></i></span>
-          <span class="text"> Kota, Rajasthan </span>
+          <span class="text"> <%= student.hometown.city  %>, <%= student.hometown.state  %> </span>
         </li>
       </ul>
     </div>
 
     <!-- College details -->
   </div>
-  
+
   <div class="right-side lh-base">
     <div class="education-info">
       <h3 class="title">Academics details</h3>
@@ -54,37 +50,37 @@
         <div class="row">
           <div class="mb-3 col-md-6 lh-lg">
             <li>
-              <p class="text">University Name: Chandigarh University</p>
+              <p class="text">University Name: <%= student.university.university  %></p>
             </li>
 
             <li>
-              <p class="text">UID:- 20BCS9828</p>
+              <p class="text">UID:- <%= student.username  %></p>
             </li>
             <li>
-              <p class="text">Stream: CSE.</p>
+              <p class="text">Stream: <%= student.university.stream  %></p>
             </li>
             <li>
-              <p class="text">CGPA: 10</p>
+              <p class="text">CGPA: <%= student.university.cgpa %></p>
             </li>
           </div>
 
           <div class="mb-3 col-md-6 lh-lg">
             <li>
-              <p class="text">College Name: Chandigarh University</p>
+              <p class="text">College Name: <%= student.university.college  %></p>
             </li>
             <li>
-              <p class="text">Branch: B.E.</p>
+              <p class="text">Branch: <%= student.university.branch  %></p>
             </li>
             <li>
-              <p class="text">Batch: 2024</p>
+              <p class="text">Batch: <%= student.university.batch  %></p>
             </li>
             <li>
-              <p class="text">Gap: 0</p>
+              <p class="text">Gap: <%= student.university.gap  %></p>
             </li>
           </div>
         </div>
       </ul>
-      
+
     </div>
     <hr class="hr" />
     <br />
@@ -94,43 +90,53 @@
         <div class="row">
           <div class="mb-3 col-md-6 lh-lg">
             <li>
-              <p class="text">10th Percentage: 90 %</p>
+              <p class="text">10th Percentage: <%= student.academics.tenth.percentage  %></p>
             </li>
 
             <li>
-              <p class="text">10th Board: CBSE</p>
+              <p class="text">10th Board: <%= student.academics.tenth.board  %></p>
             </li>
 
             <li>
-              <p class="text">10th School: Kendriya Vidyalaya</p>
+              <p class="text">10th School: <%= student.academics.tenth.school  %></p>
             </li>
-           
-        </div>
-            <div class="mb-3 col-md-6 lh-lg">
-              <li>
-                <p class="text">12th Percentage: 90 %</p>
-              </li>
 
-              <li>
-                <p class="text">10th Board: CBSE</p>
-              </li>
-              <li>
-                <p class="text">10th School: Central Academy</p>
-              </li>
+          </div>
+          <div class="mb-3 col-md-6 lh-lg">
+            <li>
+              <p class="text">12th Percentage: <%= student.academics.twelfth.percentage  %></p>
+            </li>
 
-            </div>
+            <li>
+              <p class="text">10th Board: <%= student.academics.twelfth.board  %></p>
+            </li>
+            <li>
+              <p class="text">10th School: <%= student.academics.twelfth.school  %></p>
+            </li>
+
           </div>
         </div>
-      </ul>
-      <hr>
-      <div class="row">
-        <h3 class="title">Uploaded Files</h3>
-      </div>
+    </div>
+    </ul>
+    <hr>
+    <div class="row">
+      <h3 class="title mb-3">Uploaded Files</h3>
+
+      <div class="mb-3 col-md-6 overflow-hidden">
+        <label for="curr-jd" class="form-label">
+          Resume</label>
+        <label for="curr-jd" class="jdArea border-0  ">
+          <a href="<%= student.file.resume.url %>">
+            <img src="<%= process.env.PDF %>" alt="" class="pdf-logo" />
+            <label id="curr-jd"><%= student.file.resume.filename %></label>
+          </a>
+        </label>
       </div>
     </div>
-    
-    
-  
+  </div>
+</div>
 
-  <script src="/js/dragAndDrop.js"></script>
 
+
+
+<script src="/js/dragAndDrop.js"></script>
