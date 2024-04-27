@@ -16,14 +16,6 @@ const UserSchema = new Schema({
   email: {
     type: String,
   },
-  image: {
-    url: {
-      type: String,
-    },
-    filename: {
-      type: String,
-    },
-  },
   phone: {
     type: String,
   },
@@ -57,26 +49,28 @@ const UserSchema = new Schema({
       type: Number,
     },
   },
-  tenth: {
-    percentage: {
-      type: Number,
+  academics: {
+    tenth: {
+      percentage: {
+        type: Number,
+      },
+      board: {
+        type: String,
+      },
+      school: {
+        type: String,
+      },
     },
-    board: {
-      type: String,
-    },
-    school: {
-      type: String,
-    },
-  },
-  twelfth: {
-    percentage: {
-      type: Number,
-    },
-    board: {
-      type: String,
-    },
-    school: {
-      type: String,
+    twelfth: {
+      percentage: {
+        type: Number,
+      },
+      board: {
+        type: String,
+      },
+      school: {
+        type: String,
+      },
     },
   },
   hometown: {
@@ -91,12 +85,22 @@ const UserSchema = new Schema({
       type: String,
     },
   },
-  resume: {
-    url: {
-      type: String,
+  file: {
+    image: {
+      url: {
+        type: String,
+      },
+      filename: {
+        type: String,
+      },
     },
-    filename: {
-      type: String,
+    resume: {
+      url: {
+        type: String,
+      },
+      filename: {
+        type: String,
+      },
     },
   },
   companies: [
