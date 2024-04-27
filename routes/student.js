@@ -43,4 +43,6 @@ router.route("/myCompanies").get(studentController.companies);
 
 router.get("/logout", studentController.logout);
 
+router.get("/all", studentController.allStudents);
+
 module.exports = router;

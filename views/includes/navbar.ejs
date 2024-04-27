@@ -1,11 +1,7 @@
 <nav class="navbar navbar-expand-lg p-3 pb-4 mb-5">
   <div class="container-fluid d-flex justify-content-between">
     <a class="navbar-brand" href="/">
-      <img
-        src="https://e2india.com/wp-content/uploads/2021/05/cu1.jpg"
-        alt=""
-        class="hero-image"
-      />
+      <img src="https://e2india.com/wp-content/uploads/2021/05/cu1.jpg" alt="" class="hero-image" />
       <div class="hero-name">
         <div class="name1">Placements</div>
         <div class="name2">& Competitions</div>
@@ -13,43 +9,23 @@
     </a>
 
     <form class="d-flex" role="search">
-      <input
-        class="form-control me-2 search-box"
-        type="search"
-        placeholder="Search"
-        aria-label="Search"
-      />
+      <input class="form-control me-2 search-box" type="search" placeholder="Search" aria-label="Search" />
       <button class="btn btn-danger" type="submit">Search</button>
     </form>
 
     <div class="options">
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link text-light active" aria-current="page" href="/"
-              >Home</a
-            >
+            <a class="nav-link text-light active" aria-current="page" href="/">Home</a>
           </li>
           <% if(currUser === undefined) { %>
           <li class="nav-item dropdown">
-            <a
-              class="nav-link dropdown-toggle text-light"
-              role="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
+            <a class="nav-link dropdown-toggle text-light" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Admin
             </a>
             <ul class="dropdown-menu">
@@ -62,12 +38,7 @@
             </ul>
           </li>
           <li class="nav-item dropdown">
-            <a
-              class="nav-link dropdown-toggle text-light"
-              role="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
+            <a class="nav-link dropdown-toggle text-light" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Student
             </a>
             <ul class="dropdown-menu">
@@ -79,51 +50,42 @@
               </li>
             </ul>
           </li>
-          <% } else { %> <% if(currUser.role === 0 ) {%>
+          <% } else { %> <% if(currUser.role === 1 ) {%>
           <li class="nav-item">
-            <a
-              class="nav-link text-light active"
-              aria-current="page"
-              href="/student/myCompanies"
-              >My Companies</a
-            >
+            <a class="nav-link text-light active" aria-current="page" href="/student/all">All Students</a>
           </li>
           <li class="nav-item dropdown">
-            <a
-              class="nav-link nav-dropdown dropdown-toggle"
-              role="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
+            <a class="nav-link nav-dropdown dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               <div class="nav-img">
-                <img
-                  src="<%= currUser.file.image.url %>"
-                  alt="<%= currUser.file.image.filename %>"
-                />
+                <img src="https://png.pngtree.com/png-vector/20191125/ourmid/pngtree-beautiful-admin-roles-line-vector-icon-png-image_2035379.jpg" alt="" />
               </div>
             </a>
             <ul class="dropdown-menu">
               <li>
-                <a
-                  class="nav-link active"
-                  aria-current="page"
-                  href="/student/profile/<%= currUser._id %>"
-                  >Profile</a
-                >
-              </li>
-
-              <li>
-                <a
-                  class="nav-link active"
-                  aria-current="page"
-                  href="/<% if(currUser.role === 0) {%>student<% } else {%>admin<% }%>/logout"
-                  >Logout</a
-                >
+                <a class="nav-link active" aria-current="page" href="/admin/logout">Logout</a>
               </li>
             </ul>
           </li>
           <% } else { %>
-          <div class="div"></div>
+          <li class="nav-item">
+            <a class="nav-link text-light active" aria-current="page" href="/student/myCompanies">My Companies</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link nav-dropdown dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <div class="nav-img">
+                <img src="<%= currUser.file.image.url %>" alt="<%= currUser.file.image.filename %>" />
+              </div>
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <a class="nav-link active" aria-current="page" href="/student/profile/<%= currUser._id %>">Profile</a>
+              </li>
+
+              <li>
+                <a class="nav-link active" aria-current="page" href="/student/logout">Logout</a>
+              </li>
+            </ul>
+          </li>
           <%} } %>
         </ul>
       </div>
