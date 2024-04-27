@@ -63,11 +63,23 @@
       <div class="row">
         <div class="mb-3 col-md-4">
           <label for="phone" class="form-label">Phone Number</label>
-          <input type="number" class="form-control" id="phone" required />
+          <input
+            type="number"
+            class="form-control"
+            id="phone"
+            name="student[phone]"
+            required
+          />
         </div>
         <div class="mb-3 col-md-4">
           <label for="dob" class="form-label">Date of Birth</label>
-          <input type="date" class="form-control" id="dob" required />
+          <input
+            type="date"
+            class="form-control"
+            id="dob"
+            name="student[dob]"
+            required
+          />
         </div>
         <div class="mb-3 col-md-4">
           <label for="" class="form-label">Gender</label>
@@ -81,6 +93,7 @@
                 class="form-check-input"
                 id="male"
                 name="gender"
+                name="student[gender]"
                 required
               />
               <label for="male" class="form-label">Male</label>
@@ -90,7 +103,7 @@
                 type="radio"
                 class="form-check-input"
                 id="female"
-                name="gender"
+                name="student[gender]"
                 required
               />
               <label for="female" class="form-label">Female</label>
