@@ -2,10 +2,10 @@
 
 <div class="row">
   <div class="student-form col-8 offset-2 px-5 py-4">
-    <h1 class="form-heading text-center">Edit your profile</h1>
+    <h1 class="form-heading text-center">Edit Profile</h1>
     <br /><br />
 
-    <form autocomplete="off">
+    <form action="/student/editProfile" method="POST" class="needs-validation" novalidate enctype="multipart/form-data">
       <div class="row">
         <div class="label">
           <label for="" class="form-label">
@@ -14,43 +14,45 @@
           <hr class="hr" />
         </div>
         <div class="mb-3 col-md-6">
-          <label for="name" class="form-label">Name</label>
-          <input type="text" class="form-control" id="name" name="student[name]" value="<%= student.name %>" />
+          <label for="name" class="form-label required">Name</label>
+          <input type="text" class="form-control " id="name" name="student[name]" value="<%= student.name  %>" required />
         </div>
         <div class="mb-3 col-md-6">
-          <label for="username" class="form-label">UID</label>
-          <input type="text" class="form-control" id="username" name="student[username]" value="<%= student.username %>" />
+          <label for="username" class="form-label required">UID</label>
+          <input type="text" class="form-control " id="username" name="student[username]" value="<%= student.username  %>" required readonly />
         </div>
       </div>
       <div class="row">
         <div class="mb-3 col-md-6">
-          <label for="email" class="form-label">Email</label>
-          <input type="email" class="form-control" id="email" name="student[email]" value="<%= student.email %>" />
+          <label for="email" class="form-label required">Email</label>
+          <input type="email" class="form-control " id="email" name="student[email]" value="<%= student.email  %>" required />
         </div>
         <div class="mb-3 col-md-6">
           <label for="password" class="form-label">Password</label>
-          <input type="password" class="form-control" id="password" name="student[password]" value="<%= student.password %>" />
+          <input type="password" class="form-control" id="password" name="student[password]" />
         </div>
       </div>
       <div class="row">
-        <div class="mb-3 col-md-6">
+        <div class="mb-3 col-md-4">
           <label for="phone" class="form-label">Phone Number</label>
-          <input type="number" class="form-control" id="phone" value="<%= student.phone %>" />
+          <input type="number" class="form-control" id="phone" name="student[phone]" value="<%= student.phone  %>" required />
         </div>
-        <div class="mb-3 col-md-3">
+        <div class="mb-3 col-md-4">
           <label for="dob" class="form-label">Date of Birth</label>
-          <input type="date" class="form-control" id="dob" value="<%= student.dob %>" />
+          <input type="date" class="form-control" id="dob" name="student[dob]" value="<%= student.dob  %>" required />
         </div>
-        <div class="mb-3 col-md-3">
+        <div class="mb-3 col-md-4">
           <label for="" class="form-label">Gender</label>
           <br />
           <div class="g-options d-flex justify-content-between col-md-10 align-items-center">
             <div class="male">
-              <input type="radio" class="form-check-input" id="male" name="gender" />
+              <input type="radio" class="form-check-input" id="male" name="student[gender]" value="Male" required <% if(student.gender
+              === "Male") {%> checked <% } %> />
               <label for="male" class="form-label">Male</label>
             </div>
             <div class="female">
-              <input type="radio" class="form-check-input" id="female" name="gender" />
+              <input type="radio" class="form-check-input" id="female" name="student[gender]" value="Female" required <%
+              if(student.gender === "Female") {%> checked <% } %> />
               <label for="female" class="form-label">Female</label>
             </div>
           </div>
@@ -65,35 +67,35 @@
       <div class="row">
         <div class="mb-3 col-md-6">
           <label for="uname" class="form-label">University Name</label>
-          <input type="text" class="form-control" id="uname" name="student[university][university]" />
+          <input type="text" class="form-control" id="uname" name="student[university][university]" value="<%= student.university.university  %>" required />
         </div>
         <div class="mb-3 col-md-6">
           <label for="cname" class="form-label">College Name</label>
-          <input type="text" class="form-control" id="cname" name="student[university][college]" />
+          <input type="text" class="form-control" id="cname" name="student[university][college]" value="<%= student.university.college  %>" required />
         </div>
       </div>
       <div class="row">
         <div class="mb-3 col-md-6">
           <label for="branch" class="form-label">Branch</label>
-          <input type="text" class="form-control" id="branch" name="student[university][branch]" />
+          <input type="text" class="form-control" id="branch" name="student[university][branch]" value="<%= student.university.branch  %>" required />
         </div>
         <div class="mb-3 col-md-6">
           <label for="stream" class="form-label">Stream</label>
-          <input type="text" class="form-control" id="stream" name="student[university][stream]" />
+          <input type="text" class="form-control" id="stream" name="student[university][stream]" value="<%= student.university.stream  %>" required />
         </div>
       </div>
       <div class="row">
         <div class="mb-3 col-md-4">
           <label for="cgpa" class="form-label">CGPA</label>
-          <input type="number" class="form-control" id="cgpa" name="student[university][cgpa]" />
+          <input type="number" class="form-control" id="cgpa" min="0" name="student[university][cgpa]" step="0.01" value="<%= student.university.cgpa  %>" required />
         </div>
         <div class="mb-3 col-md-4">
           <label for="gap" class="form-label">Gap</label>
-          <input type="number" class="form-control" id="gap" name="student[university][gap]" />
+          <input type="number" class="form-control" id="gap" name="student[university][gap]" min="0" value="<%= student.university.gap  %>" required />
         </div>
         <div class="mb-3 col-md-4">
           <label for="batch" class="form-label">Batch</label>
-          <input type="number" class="form-control" id="batch" name="student[university][batch]" />
+          <input type="number" class="form-control" id="batch" name="student[university][batch]" value="<%= student.university.batch  %>" required />
         </div>
       </div>
       <br />
@@ -114,34 +116,34 @@
       <div class="row">
         <div class="mb-3 col-md-6">
           <label for="tenper" class="form-label">10th Percentage</label>
-          <input type="number" class="form-control" id="tenper" name="student[tenth][percentage]" />
+          <input type="number" class="form-control" id="tenper" name="student[academics][tenth][percentage]" value="<%= student.academics.tenth.percentage  %>" min="0" step="0.01" required />
         </div>
         <div class="mb-3 col-md-6">
           <label for="tweper" class="form-label">12th Percentage</label>
-          <input type="number" class="form-control" id="tweper" name="student[twelfth][percentage]" />
+          <input type="number" class="form-control" id="tweper" name="student[academics][twelfth][percentage]" value="<%= student.academics.twelfth.percentage  %>" min="0" step="0.01" required />
         </div>
       </div>
-      <div class="row mt-4">
+      <div class="row mt-3">
         <div class="mb-3 col-md-6">
           <label for="tenb" class="form-label">10th Board</label>
-          <input type="text" class="form-control" id="tenb" name="student[tenth][board]" />
+          <input type="text" class="form-control" id="tenb" name="student[academics][tenth][board]" value="<%= student.academics.tenth.board  %>" required />
         </div>
         <div class="mb-3 col-md-6">
           <label for="tweb" class="form-label">12th Board</label>
-          <input type="text" class="form-control" id="tweb" name="student[twelfth][board]" />
+          <input type="text" class="form-control" id="tweb" name="student[academics][twelfth][board]" value="<%= student.academics.twelfth.board  %>" required />
         </div>
       </div>
       <div class="row">
         <div class="mb-3 col-md-6">
           <label for="tens" class="form-label">10th School</label>
-          <input type="text" class="form-control" id="tens" name="student[tenth][school]" />
+          <input type="text" class="form-control" id="tens" name="student[academics][tenth][school]" value="<%= student.academics.tenth.school  %>" required />
         </div>
         <div class="mb-3 col-md-6">
           <label for="twes" class="form-label">12th School</label>
-          <input type="text" class="form-control" id="twes" name="student[twelfth][school]" />
+          <input type="text" class="form-control" id="twes" name="student[academics][twelfth][school]" value="<%= student.academics.twelfth.school  %>" required />
         </div>
       </div>
-      <div class="row mt-4">
+      <div class="row mt-3">
         <div class="label">
           <label for="" class="form-label">
             <h3>Residential Details</h3>
@@ -151,38 +153,66 @@
       </div>
       <div class="mb-3">
         <label for="address" class="form-label">Full Address</label>
-        <input type="text" class="form-control" id="address" name="student[hometown][address]" />
+        <input type="text" class="form-control" id="address" name="student[hometown][address]" value="<%= student.hometown.address  %>" required />
       </div>
       <div class="row">
         <div class="mb-3 col-md-6">
           <label for="city" class="form-label">City</label>
-          <input type="text" class="form-control" id="city" name="student[hometown][city]" />
+          <input type="text" class="form-control" id="city" name="student[hometown][city]" value="<%= student.hometown.city  %>" required />
         </div>
         <div class="mb-3 col-md-6">
           <label for="state" class="form-label">State</label>
-          <input type="text" class="form-control" id="state" name="student[hometown][state]" />
+          <input type="text" class="form-control" id="state" name="student[hometown][state]" value="<%= student.hometown.state %>" required />
         </div>
       </div>
-      <hr class="hr" />
-      <div class="row">
-        <div class="resume-box">
+      <div class="row mt-3">
+        <div class="label">
+          <label for="" class="form-label">
+            <h3>Upload Files</h3>
+          </label>
+          <hr class="hr" />
+        </div>
+
+        <div class="mb-3 col-md-6">
+          <label class="form-label">Current Image</label>
+          <div class="">
+            <img class="curr-img border border-black" src="<%= student.file.image.url %>" alt="<%=student.file.image.filename %>" />
+          </div>
+        </div>
+
+        <div class="mb-3 col-md-6 overflow-hidden">
+          <label for="curr-jd" class="form-label">Current Resume</label>
+          <label for="curr-jd" class="jdArea col-md-12">
+            <a href="<%= student.file.resume.url %>">
+              <img src="<%= process.env.PDF %>" alt="" class="pdf-logo" />
+              <label id="curr-jd"><%= student.file.resume.filename%></label>
+            </a>
+          </label>
+        </div>
+        <div class="w-50">
+          <label for="photo" class="form-label col-md-12">Profile Photo</label>
+          <label for="photo" class="dropArea form-control col-md-12">
+            <input type="file" class="form-control" id="photo" accept="image/*" name="student[file][image]" value="<%= student.file.image.url  %>" />
+            <div class="drop-message">
+              <p id="drop-text"><b>Select an Image</b> or drag it here</p>
+            </div>
+          </label>
+        </div>
+        <div class="w-50">
           <label for="resume" class="form-label col-md-12">Resume</label>
           <label for="resume" class="dropArea form-control col-md-12">
-            <input type="file" class="form-control" id="resume" accept="application/pdf" />
+            <input type="file" class="form-control pdf" id="resume" accept="application/pdf" name="student[file][resume]" />
             <div class="drop-message">
               <p id="drop-text"><b>Select a PDF</b> or drag it here</p>
             </div>
           </label>
         </div>
       </div>
-      <div class="my-3 form-check">
-        <input type="checkbox" class="form-check-input" id="exampleCheck1" />
+      <div class="mt-4 form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1" required />
         <label class="form-check-label" for="exampleCheck1">Remember me</label>
       </div>
-      <div class="btn-box d-flex justify-content-between">
-        <button type="submit" class="btn btn-secondary">Submit</button>
-        <button type="submit" class="btn btn-success">Edit</button>
-      </div>
+      <button type="submit" class="btn btn-secondary mt-4 mb-3">Submit</button>
     </form>
   </div>
 </div>

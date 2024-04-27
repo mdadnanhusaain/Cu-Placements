@@ -375,3 +375,8 @@ body {
   background-color: #003047d2;
   color: #fff;
 }
+
+.required:after {
+  content:" *";
+  color: red;
+}
