@@ -1,3 +1,41 @@
 <% layout("/layouts/boilerplate.ejs") %>
 
 <h1>Companies applied to</h1>
+
+<div class="d-flex justify-content-start flex-wrap">
+  <% for(let i in companies) { let company = companies[i]%>
+  <div class="card m-5" style="width: 20rem">
+    <img src="<%= company.file.image.url %>" class="card-img border-bottom" alt="<%= company.file.image.filename %>" />
+
+    <div class="card-body w-75  d-flex justify-content-between flex-column">
+      <div class="card-content mb-3">
+        <h5 class="card-title">
+          <%= company.name %>
+          <hr class="hr" />
+        </h5>
+        <div class="card-text mt-4">
+          <div class="row d-flex flex-column">
+            <div class="col">
+              <div class="label">Role:</div>
+              <%= company.jd.position %>
+            </div>
+            <div class="col">
+              <div class="label">Location:</div>
+              <%= company.jd.location.city %>, <%= company.jd.location.state %>
+            </div>
+            <div class="col">
+              <div class="label">Package:</div>
+              <%= company.jd.package %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="comp-buttons d-flex justify-content-around mb-3">
+
+        <a href="/company/about/<%= company._id  %>" class="btn btn-primary">About</a>
+      </div>
+    </div>
+  </div>
+  <% } %>
+</div>
