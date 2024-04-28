@@ -27,6 +27,8 @@ router
   .get(companyController.editForm)
   .post(companyFiles, isAdmin, wrapAsync(companyController.editCompany));
 
+router.get("/all", isAdmin, wrapAsync(companyController.allDrive));
+
 router.post("/end/:id", isAdmin, wrapAsync(companyController.endDrive));
 
 module.exports = router;

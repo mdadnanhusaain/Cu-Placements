@@ -88,6 +88,11 @@ module.exports.editCompany = async (req, res) => {
   res.redirect("/");
 };
 
+module.exports.allDrive = async (req, res) => {
+  let companies = await Company.find({});
+  res.render("pages/driveDetails.ejs", { companies });
+};
+
 module.exports.endDrive = async (req, res) => {
   try {
     let { id } = req.params;
