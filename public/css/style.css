@@ -434,3 +434,22 @@ body {
   background-color: #1f485dd2;
   color: #fff;
 }
+
+.comp-logo {
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 50%;
+  box-shadow: 0 0 0.25rem black;
+  margin: 0 1rem 0 0;
+}
+
+.accordion-button {
+  background-color: #cfdbffd3;
+}
+
+
+.accordion-item {
+  background-color: #bfc6fd8f;
+  box-shadow: 0 0 0.4rem #8693f98f;
+  border: none;
+}

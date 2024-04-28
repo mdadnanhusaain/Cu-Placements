@@ -5,331 +5,184 @@
     <h1 class="form-heading text-center">Student SignUp</h1>
     <br /><br />
 
-    <form
-      action="/student/signup"
-      method="POST"
-      class="needs-validation"
-      novalidate
-      enctype="multipart/form-data"
-    >
+    <form action="/student/signup" method="POST" class="needs-validation" novalidate enctype="multipart/form-data">
       <div class="row">
         <div class="label">
-          <label for="" class="form-label"><h3>Account Details</h3></label>
+          <label for="" class="form-label">
+            <h3>Account Details</h3>
+          </label>
           <hr class="hr" />
         </div>
         <div class="mb-3 col-md-6">
           <label for="name" class="form-label">Name</label>
-          <input
-            type="text"
-            class="form-control"
-            id="name"
-            name="student[name]"
-            required
-          />
+          <input type="text" class="form-control" id="name" name="student[name]" required />
         </div>
         <div class="mb-3 col-md-6">
           <label for="username" class="form-label">UID</label>
-          <input
-            type="text"
-            class="form-control"
-            id="username"
-            name="student[username]"
-            required
-          />
+          <input type="text" class="form-control" id="username" name="student[username]" required />
         </div>
       </div>
       <div class="row">
         <div class="mb-3 col-md-6">
           <label for="email" class="form-label">Email</label>
-          <input
-            type="email"
-            class="form-control"
-            id="email"
-            name="student[email]"
-            required
-          />
+          <input type="email" class="form-control" id="email" name="student[email]" required />
         </div>
         <div class="mb-3 col-md-6">
           <label for="password" class="form-label">Password</label>
-          <input
-            type="password"
-            class="form-control"
-            id="password"
-            name="student[password]"
-            required
-          />
+          <input type="password" class="form-control" id="password" name="student[password]" required />
         </div>
       </div>
       <div class="row">
         <div class="mb-3 col-md-4">
           <label for="phone" class="form-label">Phone Number</label>
-          <input
-            type="number"
-            class="form-control"
-            id="phone"
-            name="student[phone]"
-            required
-          />
+          <input type="number" class="form-control" id="phone" name="student[phone]" required />
         </div>
         <div class="mb-3 col-md-4">
           <label for="dob" class="form-label">Date of Birth</label>
-          <input
-            type="date"
-            class="form-control"
-            id="dob"
-            name="student[dob]"
-            required
-          />
+          <input type="date" class="form-control" id="dob" name="student[dob]" required />
         </div>
         <div class="mb-3 col-md-4">
           <label for="" class="form-label">Gender</label>
           <br />
-          <div
-            class="g-options d-flex justify-content-between col-md-10 align-items-center"
-          >
+          <div class="g-options d-flex justify-content-between col-md-10 align-items-center">
             <div class="male">
-              <input
-                type="radio"
-                class="form-check-input"
-                id="male"
-                name="student[gender]"
-                value="Male"
-                required
-              />
+              <input type="radio" class="form-check-input" id="male" name="student[gender]" value="Male" required />
               <label for="male" class="form-label">Male</label>
             </div>
             <div class="female">
-              <input
-                type="radio"
-                class="form-check-input"
-                id="female"
-                name="student[gender]"
-                value="Female"
-                required
-              />
+              <input type="radio" class="form-check-input" id="female" name="student[gender]" value="Female" required />
               <label for="female" class="form-label">Female</label>
             </div>
           </div>
         </div>
       </div>
       <div class="mt-3">
-        <label for="" class="form-label"><h3>University Details</h3></label>
+        <label for="" class="form-label">
+          <h3>University Details</h3>
+        </label>
       </div>
       <hr class="hr" />
       <div class="row">
         <div class="mb-3 col-md-6">
           <label for="uname" class="form-label">University Name</label>
-          <input
-            type="text"
-            class="form-control"
-            id="uname"
-            name="student[university][university]"
-            required
-          />
+          <input type="text" class="form-control" id="uname" name="student[university][university]" required />
         </div>
         <div class="mb-3 col-md-6">
           <label for="cname" class="form-label">College Name</label>
-          <input
-            type="text"
-            class="form-control"
-            id="cname"
-            name="student[university][college]"
-            required
-          />
+          <input type="text" class="form-control" id="cname" name="student[university][college]" required />
         </div>
       </div>
       <div class="row">
         <div class="mb-3 col-md-6">
           <label for="branch" class="form-label">Branch</label>
-          <input
-            type="text"
-            class="form-control"
-            id="branch"
-            name="student[university][branch]"
-            required
-          />
+          <!-- <input type="text" class="form-control" id="branch" name="student[university][branch]" required /> -->
+          <select class="form-select" id="branch" name="student[university][branch]" required aria-label="Default select example">
+            <option selected disabled>---Select your branch---</option>
+            <option value="be">BE/BTech</option>
+            <option value="bcom">BCom</option>
+            <option value="bba">BBA</option>
+            <option value="bsc">BSc</option>
+            <option value="mba">MBA</option>
+            <option value="mtech">MTech</option>
+          </select>
         </div>
         <div class="mb-3 col-md-6">
           <label for="stream" class="form-label">Stream</label>
-          <input
-            type="text"
-            class="form-control"
-            id="stream"
-            name="student[university][stream]"
-            required
-          />
+          <input type="text" class="form-control" id="stream" name="student[university][stream]" required />
         </div>
       </div>
       <div class="row">
         <div class="mb-3 col-md-4">
           <label for="cgpa" class="form-label">CGPA</label>
-          <input
-            type="number"
-            class="form-control"
-            id="cgpa"
-            min="0"
-            name="student[university][cgpa]"
-            step="0.01"
-            required
-          />
+          <input type="number" class="form-control" id="cgpa" min="0" name="student[university][cgpa]" step="0.01" required />
         </div>
         <div class="mb-3 col-md-4">
           <label for="gap" class="form-label">Gap</label>
-          <input
-            type="number"
-            class="form-control"
-            id="gap"
-            name="student[university][gap]"
-            min="0"
-            required
-          />
+          <input type="number" class="form-control" id="gap" name="student[university][gap]" min="0" required />
         </div>
         <div class="mb-3 col-md-4">
           <label for="batch" class="form-label">Batch</label>
-          <input
-            type="number"
-            class="form-control"
-            id="batch"
-            name="student[university][batch]"
-            required
-          />
+          <input type="number" class="form-control" id="batch" name="student[university][batch]" required />
         </div>
       </div>
       <br />
       <div class="row">
         <div class="label col-md-6">
-          <label for="" class="form-label"><h4>10th Details</h4></label>
+          <label for="" class="form-label">
+            <h4>10th Details</h4>
+          </label>
           <hr class="hr" />
         </div>
         <div class="label col-md-6">
-          <label for="" class="form-label"><h4>12th Details</h4></label>
+          <label for="" class="form-label">
+            <h4>12th Details</h4>
+          </label>
           <hr class="hr" />
         </div>
       </div>
       <div class="row">
         <div class="mb-3 col-md-6">
           <label for="tenper" class="form-label">10th Percentage</label>
-          <input
-            type="number"
-            class="form-control"
-            id="tenper"
-            name="student[academics][tenth][percentage]"
-            min="0"
-            step="0.01"
-            required
-          />
+          <input type="number" class="form-control" id="tenper" name="student[academics][tenth][percentage]" min="0" step="0.01" required />
         </div>
         <div class="mb-3 col-md-6">
           <label for="tweper" class="form-label">12th Percentage</label>
-          <input
-            type="number"
-            class="form-control"
-            id="tweper"
-            name="student[academics][twelfth][percentage]"
-            min="0"
-            step="0.01"
-            required
-          />
+          <input type="number" class="form-control" id="tweper" name="student[academics][twelfth][percentage]" min="0" step="0.01" required />
         </div>
       </div>
       <div class="row mt-3">
         <div class="mb-3 col-md-6">
           <label for="tenb" class="form-label">10th Board</label>
-          <input
-            type="text"
-            class="form-control"
-            id="tenb"
-            name="student[academics][tenth][board]"
-            required
-          />
+          <input type="text" class="form-control" id="tenb" name="student[academics][tenth][board]" required />
         </div>
         <div class="mb-3 col-md-6">
           <label for="tweb" class="form-label">12th Board</label>
-          <input
-            type="text"
-            class="form-control"
-            id="tweb"
-            name="student[academics][twelfth][board]"
-            required
-          />
+          <input type="text" class="form-control" id="tweb" name="student[academics][twelfth][board]" required />
         </div>
       </div>
       <div class="row">
         <div class="mb-3 col-md-6">
           <label for="tens" class="form-label">10th School</label>
-          <input
-            type="text"
-            class="form-control"
-            id="tens"
-            name="student[academics][tenth][school]"
-            required
-          />
+          <input type="text" class="form-control" id="tens" name="student[academics][tenth][school]" required />
         </div>
         <div class="mb-3 col-md-6">
           <label for="twes" class="form-label">12th School</label>
-          <input
-            type="text"
-            class="form-control"
-            id="twes"
-            name="student[academics][twelfth][school]"
-            required
-          />
+          <input type="text" class="form-control" id="twes" name="student[academics][twelfth][school]" required />
         </div>
       </div>
       <div class="row mt-3">
         <div class="label">
-          <label for="" class="form-label"><h3>Residential Details</h3></label>
+          <label for="" class="form-label">
+            <h3>Residential Details</h3>
+          </label>
           <hr class="hr" />
         </div>
       </div>
       <div class="mb-3">
         <label for="address" class="form-label">Full Address</label>
-        <input
-          type="text"
-          class="form-control"
-          id="address"
-          name="student[hometown][address]"
-          required
-        />
+        <input type="text" class="form-control" id="address" name="student[hometown][address]" required />
       </div>
       <div class="row">
         <div class="mb-3 col-md-6">
           <label for="city" class="form-label">City</label>
-          <input
-            type="text"
-            class="form-control"
-            id="city"
-            name="student[hometown][city]"
-            required
-          />
+          <input type="text" class="form-control" id="city" name="student[hometown][city]" required />
         </div>
         <div class="mb-3 col-md-6">
           <label for="state" class="form-label">State</label>
-          <input
-            type="text"
-            class="form-control"
-            id="state"
-            name="student[hometown][state]"
-            required
-          />
+          <input type="text" class="form-control" id="state" name="student[hometown][state]" required />
         </div>
       </div>
       <div class="row mt-3">
         <div class="label">
-          <label for="" class="form-label"><h3>Upload Files</h3></label>
+          <label for="" class="form-label">
+            <h3>Upload Files</h3>
+          </label>
           <hr class="hr" />
         </div>
         <div class="w-50">
           <label for="photo" class="form-label col-md-12">Profile Photo</label>
           <label for="photo" class="dropArea form-control col-md-12">
-            <input
-              type="file"
-              class="form-control"
-              id="photo"
-              accept="image/*"
-              name="student[file][image]"
-              required
-            />
+            <input type="file" class="form-control" id="photo" accept="image/*" name="student[file][image]" required />
             <div class="drop-message">
               <p id="drop-text"><b>Select an Image</b> or drag it here</p>
             </div>
@@ -338,14 +191,7 @@
         <div class="w-50">
           <label for="resume" class="form-label col-md-12">Resume</label>
           <label for="resume" class="dropArea form-control col-md-12">
-            <input
-              type="file"
-              class="form-control pdf"
-              id="resume"
-              accept="application/pdf"
-              name="student[file][resume]"
-              required
-            />
+            <input type="file" class="form-control pdf" id="resume" accept="application/pdf" name="student[file][resume]" required />
             <div class="drop-message">
               <p id="drop-text"><b>Select a PDF</b> or drag it here</p>
             </div>
@@ -353,12 +199,7 @@
         </div>
       </div>
       <div class="mt-4 form-check">
-        <input
-          type="checkbox"
-          class="form-check-input"
-          id="exampleCheck1"
-          required
-        />
+        <input type="checkbox" class="form-check-input" id="exampleCheck1" required />
         <label class="form-check-label" for="exampleCheck1">Remember me</label>
       </div>
       <button type="submit" class="btn btn-secondary mt-4 mb-3">Submit</button>

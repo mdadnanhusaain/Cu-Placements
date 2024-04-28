@@ -1,19 +1,36 @@
 <% layout("/layouts/boilerplate.ejs") %>
 
-<div class="container-lg">
+<div class="company-form p-5">
+
+  <% for(let i in companies) { let company = companies[i]%>
+
   <div class="accordion" id="accordionExample">
     <div class="accordion-item">
       <h2 class="accordion-header">
-        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          Accordion Item #1
+        <button class="accordion-button  collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#<%= company._id%>" aria-expanded="false" aria-controls="<%= company._id%>">
+          <img src="<%= company.file.image.url %>" alt="" class="comp-logo">
+          &nbsp;
+          <h3> <%= company.name %> </h3> &nbsp;
+          <span>(2)</span>
         </button>
       </h2>
-      <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+      <div id="<%= company._id%>" class="accordion-collapse collapse " data-bs-parent="#accordionExample">
         <div class="accordion-body">
-          <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+          <h5>Students Applied</h5>
+          <div class="student-details ">
+            <div class="row d-flex justify-content-start">
+              <% for(let student in company.students) { %>
+              <div class="col mr-4">
+                <a href="#"><%= student.name %></a>
+              </div>
+              <% } %>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+    <br>
 
   </div>
+  <% } %>
 </div>
