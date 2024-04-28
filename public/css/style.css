@@ -112,6 +112,9 @@ body {
 .card-body .col {
   margin: 0.2rem 0;
 }
+.comp-buttons {
+  width: 100%;
+}
 
 .comp-buttons a {
   min-width: 5rem;
@@ -446,7 +449,6 @@ body {
 .accordion-button {
   background-color: #cfdbffd3;
 }
-
 
 .accordion-item {
   background-color: #bfc6fd8f;

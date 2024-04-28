@@ -2,10 +2,10 @@
 
 <div class="d-flex justify-content-start flex-wrap">
   <% for(let i in companies) { let company = companies[i]%>
-  <div class="card m-5" style="width: 20rem">
+  <div class="card m-4" style="width: 20rem">
     <img src="<%= company.file.image.url %>" class="card-img border-bottom" alt="<%= company.file.image.filename %>" />
 
-    <div class="card-body w-75  d-flex justify-content-between flex-column">
+    <div class="card-body w-100 d-flex justify-content-between flex-column">
       <div class="card-content mb-3">
         <h5 class="card-title">
           <%= company.name %>
@@ -29,14 +29,14 @@
         </div>
       </div>
 
-      <div class="comp-buttons d-flex justify-content-around mb-3">
+      <div class="comp-buttons d-flex justify-content-between mb-3">
         <% if(currUser) {%>
         <% if( currUser.role === 0 ) { %>
         <a href="/company/about/<%= company._id  %>" class="btn btn-primary">Apply Now</a>
         <% } else {%>
         <a href="/company/about/<%= company._id  %>" class="btn btn-primary">About</a>
         <a href="/company/edit/<%= company._id  %>" class="btn btn-warning">Edit</a>
-        <form action="/company/end/<%= company._id %>" method="post">
+        <form action="/company/end/<%= company._id %>" method="post" class="d-inline-block">
           <button class="btn btn-danger">
             End Drive
           </button>
