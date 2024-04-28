@@ -34,10 +34,10 @@
         <% if( currUser.role === 0 ) { %>
         <a href="/company/about/<%= company._id  %>" class="btn btn-primary">Apply Now</a>
         <% } else {%>
+        <a href="/company/about/<%= company._id  %>" class="btn btn-primary">About</a>
         <a href="/company/edit/<%= company._id  %>" class="btn btn-warning">Edit</a>
-        <form action="/company/end/<% company._id %>">
-          <!-- Button trigger modal -->
-          <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#<%=company._id%>">
+        <form action="/company/end/<%= company._id %>" method="post">
+          <button class="btn btn-danger">
             End Drive
           </button>
         </form>

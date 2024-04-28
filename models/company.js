@@ -93,7 +93,7 @@ const CompanySchema = new Schema({
   students: [
     {
       type: Schema.Types.ObjectId,
-      ref: "Student",
+      ref: "User",
     },
   ],
 });

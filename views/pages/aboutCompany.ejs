@@ -112,7 +112,9 @@
 
     </div>
     <% if(currUser.role === 0 ) {%>
-    <a href="" class="apply-btn btn" type="button">Apply Now</a>
+    <form action="/company/apply/<%= company._id %>" method="post">
+      <button class="apply-btn btn">Apply Now</button>
+    </form>
     <% } else if(currUser.role === 1) {%>
     <a href="/company/edit/<%= company._id  %>" class="apply-btn btn" type="button">Edit Company Details</a>
     <% } %>
