@@ -135,7 +135,17 @@ module.exports.updateProfile = async (req, res) => {
 
 module.exports.companies = async (req, res) => {
   let student = await User.findById(res.locals.currUser._id);
-  res.render("pages/myCompanies.ejs", { student });
+
+  await student.populate({
+    path: "companies",
+    populate: {
+      path: "students",
+    },
+  });
+
+  let companies = student.companies;
+
+  res.render("pages/myCompanies.ejs", { companies });
 };
 
 module.exports.logout = (req, res, next) => {
