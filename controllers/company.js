@@ -1,4 +1,19 @@
 const Company = require("../models/company.js");
+const User = require("../models/user.js");
+
+module.exports.allDrive = async (req, res) => {
+  let companies = await Company.find({});
+  for (let i in companies) {
+    let company = companies[i];
+    await company.populate({
+      path: "students",
+      populate: {
+        path: "companies",
+      },
+    });
+  }
+  res.render("pages/driveDetails.ejs", { companies });
+};
 
 module.exports.about = async (req, res) => {
   let { id } = req.params;
@@ -88,9 +103,26 @@ module.exports.editCompany = async (req, res) => {
   res.redirect("/");
 };
 
-module.exports.allDrive = async (req, res) => {
-  let companies = await Company.find({});
-  res.render("pages/driveDetails.ejs", { companies });
+module.exports.apply = async (req, res) => {
+  let { id } = req.params;
+  let userId = res.locals.currUser._id;
+  try {
+    let company = await Company.findById(id);
+    company.students.push(userId);
+    let newCompany = await company.save();
+
+    let student = await User.findById(userId);
+    student.companies.push(id);
+    let newStudent = await student.save();
+
+    console.log(`${newStudent.name} has applied for ${newCompany.name}`);
+
+    req.flash("success", `Successfully applied to ${company.name}`);
+    res.redirect(`/student/myCompanies/#${id}`);
+  } catch (err) {
+    req.flash("error", err.message);
+    res.redirect(`/company/about/${id}`);
+  }
 };
 
 module.exports.endDrive = async (req, res) => {

@@ -8,27 +8,71 @@ const upload = multer({ storage });
 const wrapAsync = require("../utility/wrapAsync.js");
 const companyController = require("../controllers/company.js");
 
-const { isAdmin } = require("../middlewares/middleware.js");
+const {
+  isAdmin,
+  saveRedirectUrl,
+  isLoggedIn,
+  isStudent,
+  isEligible,
+} = require("../middlewares/middleware.js");
 
 let companyFiles = upload.fields([
   { name: "company[file][image]", maxCount: 1 },
   { name: "company[file][jd]", maxCount: 1 },
 ]);
 
-router.get("/about/:id", wrapAsync(companyController.about));
+router.get(
+  "/all",
+  saveRedirectUrl,
+  isLoggedIn,
+  isAdmin,
+  wrapAsync(companyController.allDrive)
+);
+
+router.get(
+  "/about/:id",
+  saveRedirectUrl,
+  isLoggedIn,
+  wrapAsync(companyController.about)
+);
 
 router
   .route("/add")
-  .get(companyController.addForm)
-  .post(companyFiles, isAdmin, wrapAsync(companyController.addCompany));
+  .get(saveRedirectUrl, isLoggedIn, isAdmin, companyController.addForm)
+  .post(
+    companyFiles,
+    saveRedirectUrl,
+    isLoggedIn,
+    isAdmin,
+    wrapAsync(companyController.addCompany)
+  );
 
 router
   .route("/edit/:id")
-  .get(companyController.editForm)
-  .post(companyFiles, isAdmin, wrapAsync(companyController.editCompany));
+  .get(saveRedirectUrl, isLoggedIn, isAdmin, companyController.editForm)
+  .post(
+    companyFiles,
+    saveRedirectUrl,
+    isLoggedIn,
+    isAdmin,
+    wrapAsync(companyController.editCompany)
+  );
 
-router.get("/all", isAdmin, wrapAsync(companyController.allDrive));
+router.post(
+  "/apply/:id",
+  saveRedirectUrl,
+  isLoggedIn,
+  isStudent,
+  isEligible,
+  wrapAsync(companyController.apply)
+);
 
-router.post("/end/:id", isAdmin, wrapAsync(companyController.endDrive));
+router.post(
+  "/end/:id",
+  saveRedirectUrl,
+  isLoggedIn,
+  isAdmin,
+  wrapAsync(companyController.endDrive)
+);
 
 module.exports = router;

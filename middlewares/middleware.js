@@ -1,12 +1,12 @@
+const Company = require("../models/company.js");
 const User = require("../models/user.js");
 
 // Login Validation
 module.exports.isLoggedIn = (req, res, next) => {
-  console.log(`Current User :- ${req.user}`);
   if (!req.isAuthenticated()) {
     req.session.redirectUrl = req.originalUrl;
-    req.flash("error", "You must be logged in to create listing!");
-    return res.redirect("/login");
+    req.flash("error", "You must be logged in to proceed!");
+    return res.redirect("/student/login");
   }
   next();
 };
@@ -15,7 +15,6 @@ module.exports.isLoggedIn = (req, res, next) => {
 module.exports.saveRedirectUrl = async (req, res, next) => {
   try {
     if (!req.session.redirectUrl) {
-      console.log(`Invalid Redirect URL:- ${req.session.redirectUrl}`);
       throw new Error();
     }
     let url = `${req.protocol}://${req.get("host")}${req.session.redirectUrl}`;
@@ -49,7 +48,7 @@ module.exports.isAdmin = async (req, res, next) => {
     }
 
     let user = await User.findById(id);
-    
+
     if (user) {
       if (user.role === 0) {
         req.flash(
@@ -111,5 +110,20 @@ module.exports.isStudent = async (req, res, next) => {
   } catch (err) {
     req.flash("error", err.message);
     res.redirect(res.locals.redirectUrl);
+  }
+};
+
+module.exports.isEligible = async (req, res, next) => {
+  let { id } = req.params;
+  let userId = res.locals.currUser._id;
+  try {
+    let company = await Company.findById(id);
+    let student = await User.findById(userId);
+
+    // Checking 10th score
+
+  } catch (err) {
+    req.flash("error", err.message);
+    res.redirect(`/company/about/${id}`);
   }
 };
