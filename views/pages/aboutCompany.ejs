@@ -14,7 +14,7 @@
     </div>
 
     <div class="contact-info">
-      <h3 class="title">Contact Info</h3>
+      <h3 class="title">Drive details</h3>
       <br />
       <ul>
         <li>
@@ -22,9 +22,23 @@
         </li>
 
         <li>
-
           <p class="text d-text">Type of drive: <%= company.dtype %></p>
+        </li>
 
+        <li>
+          <p class="text d-text">Position: <%= company.jd.position %></p>
+        </li>
+
+        <li>
+          <p class="text d-text">Location: <%= company.jd.location.city %>, <%= company.jd.location.state %> </p>
+        </li>
+
+        <li>
+          <p class="text d-text">Pay Package: <%= company.jd.package %></p>
+        </li>
+
+        <li>
+          <p class="text d-text">Bond: <%= company.jd.bond %></p>
         </li>
 
 

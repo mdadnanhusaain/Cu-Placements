@@ -124,23 +124,23 @@ body {
 .admin-form {
   padding: 2rem;
   border-radius: 1rem;
-  background-color: #b17d7987;
-  box-shadow: 0.5rem 0.5rem 0.5rem #b17d79;
-  margin-bottom: 3rem;
+  background-color: #fb291277;
+  box-shadow: 0.5rem 0.5rem 0.5rem #a9413684;
+  color: white;
 }
 
 .student-form {
-  background-color: #bfcddcd2;
-  box-shadow: 0.5rem 0.5rem 0.5rem #929598c8;
+  background-color: #bfcddc99;
+  box-shadow: 0.5rem 0.5rem 0.5rem #566f8a99;
   border-radius: 1rem;
   margin-bottom: 3rem;
 }
 
 .company-form {
-  background-color: #d0e3ff;
+  background-color: #d0e3ff99;
   border-radius: 1rem;
-  box-shadow: 0.5rem 0.5rem 0.25rem #193969;
   margin-bottom: 3rem;
+  box-shadow: 0.5rem 0.5rem 0.25rem #19396999;
 }
 
 .curr-img {
@@ -407,6 +407,7 @@ body {
 
 .about {
   /* background-color: gray; */
+  min-height: 18.75rem;
   padding: 0.3rem;
   border-bottom: 3px solid rgba(255, 255, 255, 0.2);
 }
