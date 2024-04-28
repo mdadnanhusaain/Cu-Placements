@@ -18,7 +18,12 @@ module.exports.allDrive = async (req, res) => {
 module.exports.about = async (req, res) => {
   let { id } = req.params;
   let company = await Company.findById(id);
-  res.render("pages/aboutCompany.ejs", { company });
+  if (company.students.includes(res.locals.currUser._id)) {
+    let applied = 1;
+  } else {
+    let applied = 0;
+  }
+  res.render("pages/aboutCompany.ejs", { company, applied });
 };
 
 module.exports.addForm = (req, res) => {
