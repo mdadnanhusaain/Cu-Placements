@@ -3,7 +3,9 @@ html {
 }
 
 body {
-  overflow-x: hidden;
+  margin: 0;
+  padding-bottom: 5rem;
+  box-sizing: border-box;
   background: url("https://res.cloudinary.com/dx9jspago/image/upload/v1714145612/FinalYearProject/login-bg-new-6_f00gaf.jpg");
   background-size: cover;
   backdrop-filter: blur(0.25rem);
@@ -11,9 +13,6 @@ body {
   background-attachment: fixed;
   min-height: 100%;
   position: relative;
-  margin: 0;
-  padding-bottom: 5rem;
-  box-sizing: border-box;
 }
 
 .container {
@@ -127,18 +126,21 @@ body {
   border-radius: 1rem;
   background-color: #b17d7987;
   box-shadow: 0.5rem 0.5rem 0.5rem #b17d79;
+  margin-bottom: 3rem;
 }
 
 .student-form {
   background-color: #bfcddcd2;
   box-shadow: 0.5rem 0.5rem 0.5rem #929598c8;
   border-radius: 1rem;
+  margin-bottom: 3rem;
 }
 
 .company-form {
   background-color: #d0e3ff;
   border-radius: 1rem;
   box-shadow: 0.5rem 0.5rem 0.25rem #193969;
+  margin-bottom: 3rem;
 }
 
 .curr-img {

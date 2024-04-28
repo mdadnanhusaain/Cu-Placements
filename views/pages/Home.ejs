@@ -30,8 +30,9 @@
       </div>
 
       <div class="comp-buttons d-flex justify-content-around mb-3">
-        <% if(currUser && currUser.role === 0 ) { %>
-        <a href="/company/about/<%= company._id  %>" class="btn btn-primary">About</a>
+        <% if(currUser) {%>
+        <% if( currUser.role === 0 ) { %>
+        <a href="/company/about/<%= company._id  %>" class="btn btn-primary">Apply Now</a>
         <% } else {%>
         <a href="/company/edit/<%= company._id  %>" class="btn btn-warning">Edit</a>
         <form action="/company/end/<% company._id %>">
@@ -40,26 +41,9 @@
             End Drive
           </button>
         </form>
-
-
-        <!-- Modal -->
-        <div class="modal fade " id="<%=company._id%>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog position-absolute top-50 start-50 translate-middle">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">End the Drive?</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                Are you sure you want to end the drive for <%= company.name %>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-danger">End Drive</button>
-              </div>
-            </div>
-          </div>
-        </div>
+        <% } %>
+        <% } else {%>
+        <button type="button" class="btn btn-secondary" data-bs-toggle="popover" data-bs-title="Please Login" data-bs-content="Please login into an Account to interact">Account Not Logged In</button>
         <% } %>
       </div>
     </div>

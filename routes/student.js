@@ -5,7 +5,11 @@ const multer = require("multer");
 
 const studentController = require("../controllers/student.js");
 const wrapAsync = require("../utility/wrapAsync.js");
-const { saveRedirectUrl, isAdmin } = require("../middlewares/middleware.js");
+const {
+  saveRedirectUrl,
+  isAdmin,
+  isStudent,
+} = require("../middlewares/middleware.js");
 
 const { storage } = require("../config/cloudConfig.js");
 const upload = multer({ storage });
@@ -25,6 +29,7 @@ router
   .get(studentController.loginForm)
   .post(
     saveRedirectUrl,
+    isStudent,
     passport.authenticate("local", {
       failureRedirect: "/student/login",
       failureFlash: true,
@@ -32,7 +37,7 @@ router
     wrapAsync(studentController.loginStudent)
   );
 
-router.route("/profile/:id").get(studentController.profile);
+router.route("/profile/:username").get(studentController.profile);
 
 router
   .route("/editProfile")

@@ -3,7 +3,7 @@
 <div class="admin-form col-6 offset-3 px-5 py-4">
   <h1 class="form-heading text-center">Admin SignUp</h1>
   <hr class="hr mb-4" />
-  <form>
+  <form action="/admin/signup" method="post" class="needs-validation" novalidate>
     <div class="row">
       <div class="mb-3">
         <label for="name" class="form-label">Full Name</label>
@@ -11,25 +11,15 @@
       </div>
       <div class="mb-3">
         <label for="email" class="form-label">Email address</label>
-        <input
-          type="email"
-          class="form-control"
-          id="email"
-          name="admin[email]"
-        />
+        <input type="email" class="form-control" id="email" name="admin[email]" />
       </div>
       <div class="mb-3">
         <label for="username" class="form-label">Employee ID</label>
         <input type="text" class="form-control" id="username" name="admin[username]" />
       </div>
       <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label" >Password</label>
-        <input
-          type="password"
-          class="form-control"
-          id="exampleInputPassword1"
-          name="admin[password]"
-        />
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" name="admin[password]" />
       </div>
       <div class="mb-4">
         <div class="form-check">

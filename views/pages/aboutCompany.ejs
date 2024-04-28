@@ -97,6 +97,10 @@
       </ul>
 
     </div>
+    <% if(currUser.role === 0 ) {%>
     <a href="" class="apply-btn btn" type="button">Apply Now</a>
+    <% } else if(currUser.role === 1) {%>
+    <a href="/company/edit/<%= company._id  %>" class="apply-btn btn" type="button">Edit Company Details</a>
+    <% } %>
   </div>
 </div>
