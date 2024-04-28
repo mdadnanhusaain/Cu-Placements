@@ -59,6 +59,16 @@ body {
   justify-content: space-between;
 }
 
+.navbar-collapse {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.navbar-toggler {
+  margin-left: auto;
+}
+
 .nav-bg {
   background-color: #111d13;
 }
@@ -66,6 +76,10 @@ body {
 .navbar-nav {
   display: flex;
   align-items: center;
+}
+
+.nav-item form {
+  margin: 0.5rem 0;
 }
 
 .nav-dropdown::after {
@@ -91,6 +105,7 @@ body {
 
 .card {
   border-radius: 1rem;
+  min-height: 32rem;
 }
 
 .card img {
@@ -100,6 +115,7 @@ body {
 .card-img {
   border-radius: 1rem 1rem 0 0;
   height: 13rem;
+  width: 100%;
   object-fit: cover;
 }
 
@@ -144,6 +160,19 @@ body {
   border-radius: 1rem;
   margin-bottom: 3rem;
   box-shadow: 0.5rem 0.5rem 0.25rem #19396999;
+}
+
+.company-card,
+.student-card {
+  margin-bottom: 1.5rem;
+}
+
+.student-card .card-img {
+  border-radius: 50%;
+  height: 100%;
+  width: 100%;
+  padding: 2rem;
+  object-fit: cover;
 }
 
 .curr-img {

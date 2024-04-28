@@ -1,38 +1,43 @@
-<%- layout("/layouts/boilerplate.ejs")  %>
+<%- layout("/layouts/boilerplate.ejs") %>
 
-<div class="d-flex justify-content-between flex-wrap">
-  <% for(let i in students) { let student = students[i]%>
-  <div class="card m-3 mb-5" style="width: 20rem">
-    <img src="<%= student.file.image.url %>" class="card-img border-bottom " alt="<%= student.file.image.filename %>" />
+<div class="student-form">
+  <h1 class="px-4 pt-5 pb-3">All Registered Students</h1>
+  <hr class="hr mx-4 mb-3 border border-1 border-black opacity-100" />
 
-    <div class="card-body d-flex justify-content-between flex-column">
-      <div class="card-content mb-3">
-        <h5 class="card-title">
-          <%= student.name %>
-          <hr class="hr" />
-        </h5>
-        <div class="card-text mt-4">
-          <div class="row d-flex flex-column">
-            <div class="col">
-              <div class="label">CGPA:</div>
-              <%= student.university.cgpa %>
-            </div>
-            <div class="col">
-              <div class="label">12th Percentage:</div>
-              <%= student.academics.twelfth.percentage %>%
-            </div>
-            <div class="col">
-              <div class="label">10th Percentage:</div>
-              <%= student.academics.tenth.percentage %>%
+  <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 px-3">
+    <% for(let i in students) { let student = students[i]%>
+    <div class="student p-4">
+      <div class="card col student-card">
+        <img src="<%= student.file.image.url %>" class="card-img border-bottom" alt="<%= student.file.image.filename %>" />
+
+        <div class="card-body d-flex justify-content-between flex-column">
+          <div class="card-content mb-3">
+            <h5 class="card-title">
+              <%= student.name %>
+              <hr class="hr" />
+            </h5>
+            <div class="card-text mt-4">
+              <div class="row d-flex flex-column">
+                <div class="col">
+                  <div class="label">CGPA:</div>
+                  <%= student.university.cgpa %>
+                </div>
+                <div class="col">
+                  <div class="label">12th Percentage:</div>
+                  <%= student.academics.twelfth.percentage %>%
+                </div>
+                <div class="col">
+                  <div class="label">10th Percentage:</div>
+                  <%= student.academics.tenth.percentage %>%
+                </div>
+              </div>
             </div>
           </div>
+
+          <a href="/student/profile/<%= student.username  %>" class="mt-3 btn btn-primary">Profile</a>
         </div>
       </div>
-
-
-      <a href="/student/profile/<%= student.username  %>" class="mt-3 btn btn-primary">Profile</a>
-
     </div>
+    <% } %>
   </div>
-  <% } %>
 </div>

@@ -31,23 +31,33 @@ module.exports.loginForm = (req, res) => {
 };
 
 module.exports.loginAdmin = async (req, res) => {
-  let { username } = req.body;
+  try {
+    let { username } = req.body;
 
-  let admin = await User.findByUsername(username);
+    let admin = await User.findByUsername(username);
 
-  req.flash("success", `Welcome Admin @${admin.username}!`);
-  if (!res.locals.redirectUrl) res.locals.redirectUrl = "/";
-  res.redirect(res.locals.redirectUrl);
+    req.flash("success", `Welcome Admin @${admin.username}!`);
+    if (!res.locals.redirectUrl) res.locals.redirectUrl = "/";
+    res.redirect(res.locals.redirectUrl);
+  } catch (err) {
+    req.flash("error", err.message);
+    res.redirect(res.locals.redirectUrl);
+  }
 };
 
 module.exports.logout = (req, res, next) => {
-  req.logout((err) => {
-    if (err) {
-      return next(err);
-    }
-    if (res.locals.deleted.length === 0)
-      req.flash("success", "You are logged out!");
-    else req.flash("deleted", res.locals.deleted[0]);
-    res.redirect("/");
-  });
+  try {
+    req.logout((err) => {
+      if (err) {
+        return next(err);
+      }
+      if (res.locals.deleted.length === 0)
+        req.flash("success", "You are logged out!");
+      else req.flash("deleted", res.locals.deleted[0]);
+      res.redirect("/");
+    });
+  } catch (err) {
+    req.flash("error", err.message);
+    res.redirect(res.locals.redirectUrl);
+  }
 };

@@ -6,11 +6,8 @@
       <div class="imgBx">
         <img src="<%= company.file.image.url  %>" alt="<%= company.file.image.filename  %>" />
       </div>
-      <h2><%= company.name  %> <br />
-      </h2>
-      <span class="company-website"><a href="<%= company.website %>">
-          <%= company.website %>
-        </a></span>
+      <h2><%= company.name %> <br /></h2>
+      <span class="company-website"><a href="<%= company.website %>"> <%= company.website %> </a></span>
     </div>
 
     <div class="contact-info">
@@ -18,7 +15,11 @@
       <br />
       <ul>
         <li>
-          <p class="text d-text">Date of drive: <%= new Date(company.dDate).toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' }) %></p>
+          <p class="text d-text">
+            Date of drive: <%= new
+            Date(company.dDate).toLocaleDateString('en-US', { month: 'short',
+            day: '2-digit', year: 'numeric' }) %>
+          </p>
         </li>
 
         <li>
@@ -30,7 +31,10 @@
         </li>
 
         <li>
-          <p class="text d-text">Location: <%= company.jd.location.city %>, <%= company.jd.location.state %> </p>
+          <p class="text d-text">
+            Location: <%= company.jd.location.city %>, <%=
+            company.jd.location.state %>
+          </p>
         </li>
 
         <li>
@@ -40,18 +44,16 @@
         <li>
           <p class="text d-text">Bond: <%= company.jd.bond %></p>
         </li>
-
-
       </ul>
-      <br><br>
+      <br /><br />
     </div>
 
     <div class="job-description">
       <h3 class="title">Job Description</h3>
-      <br>
+      <br />
       <ul>
         <li>
-          <label for="curr-jd" class=" border-0  ">
+          <label for="curr-jd" class="border-0">
             <a href="<%= company.file.jd.url %>" class="text-light d-flex flex-column lh-lg text-decoration-none align-items-center">
               <img src="<%= process.env.PDF %>" alt="" class="pdf-logo h-25 w-25" />
               <label id="curr-jd "><%= company.file.image.filename %></label>
@@ -59,60 +61,58 @@
           </label>
         </li>
       </ul>
-
     </div>
-
   </div>
 
   <div class="right-side">
     <div class="about">
       <h2 class="title2">Company Description</h2>
-      <p>
-      <p class="text company-text "> <%= company.desc %></p>
-      </p>
+      <div>
+        <p class="text company-text"><%= company.desc %></p>
+      </div>
     </div>
 
-    <br>
+    <br />
     <div class="education-info">
       <h3 class="title">Eligibility Criteria</h3>
-
 
       <ul>
         <div class="row">
           <div class="mb-3 col-md-6 lh-lg">
             <li>
-              <p class="text">10th Percentage: <%=  company.eligibility.tenth %></p>
+              <p class="text">
+                10th Percentage: <%= company.eligibility.tenth %>
+              </p>
             </li>
 
             <li>
-              <p class="text">12th Percentage: <%=  company.eligibility.twelfth %></p>
+              <p class="text">
+                12th Percentage: <%= company.eligibility.twelfth %>
+              </p>
             </li>
             <li>
-              <p class="text">Branch: <%=  company.eligibility.branch %></p>
+              <p class="text">Branch: <%= company.eligibility.branch %></p>
             </li>
             <li>
-              <p class="text">Stream: <%=  company.eligibility.stream %></p>
+              <p class="text">Stream: <%= company.eligibility.stream %></p>
             </li>
           </div>
 
           <div class="mb-3 col-md-6 lh-lg">
             <li>
-              <p class="text">Batch: <%=  company.eligibility.batch %> </p>
+              <p class="text">Batch: <%= company.eligibility.batch %></p>
             </li>
             <li>
-              <p class="text">CGPA: <%=  company.eligibility.cgpa %></p>
+              <p class="text">CGPA: <%= company.eligibility.cgpa %></p>
             </li>
             <li>
-              <p class="text">Gap: <%=  company.eligibility.gap %></p>
+              <p class="text">Gap: <%= company.eligibility.gap %></p>
             </li>
-
           </div>
         </div>
       </ul>
-
     </div>
-    <% if(currUser.role === 0 ) {%>
-    <% if(applied===0){  %>
+    <% if(currUser.role === 0 ) {%> <% if(applied===0){ %>
     <form action="/company/apply/<%= company._id %>" method="post">
       <button class="apply-btn btn">Apply Now</button>
     </form>
@@ -120,8 +120,7 @@
     <% } else{%>
 
     <button class="apply-btn btn disabled">Applied</button>
-    <% } %>
-    <% } else if(currUser.role === 1) {%>
+    <% } %> <% } else if(currUser.role === 1) {%>
     <a href="/company/edit/<%= company._id  %>" class="apply-btn btn" type="button">Edit Company Details</a>
     <% } %>
   </div>

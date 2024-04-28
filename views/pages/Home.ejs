@@ -1,52 +1,125 @@
 <% layout("/layouts/boilerplate.ejs") %>
 
-<div class="d-flex justify-content-start flex-wrap">
-  <% for(let i in companies) { let company = companies[i]%>
-  <div class="card m-4" style="width: 20rem">
-    <img src="<%= company.file.image.url %>" class="card-img border-bottom" alt="<%= company.file.image.filename %>" />
+<div class="company-form">
+  <% if(currUser && currUser.role === 1) {%>
+  <h1 class="px-4 pt-5 pb-3">Live Drives</h1>
+  <% } else {%>
+  <h1 class="px-4 pt-5 pb-3">All Companies</h1>
+  <% } %>
+  <hr class="hr mx-4 mb-3 border border-1 border-black opacity-100" />
 
-    <div class="card-body w-100 d-flex justify-content-between flex-column">
-      <div class="card-content mb-3">
-        <h5 class="card-title">
-          <%= company.name %>
-          <hr class="hr" />
-        </h5>
-        <div class="card-text mt-4">
-          <div class="row d-flex flex-column">
-            <div class="col">
-              <div class="label">Role:</div>
-              <%= company.jd.position %>
-            </div>
-            <div class="col">
-              <div class="label">Location:</div>
-              <%= company.jd.location.city %>, <%= company.jd.location.state %>
-            </div>
-            <div class="col">
-              <div class="label">Package:</div>
-              <%= company.jd.package %>
+  <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 px-3">
+    <% for(let i in companies) { let company = companies[i]; %> <%
+    if(company.active === 0) {%>
+    <div class="company p-4">
+      <div class="card col company-card">
+        <img src="<%= company.file.image.url %>" class="card-img border-bottom" alt="<%= company.file.image.filename %>" />
+
+        <div class="card-body d-flex justify-content-between flex-column">
+          <div class="card-content mb-3">
+            <h5 class="card-title">
+              <%= company.name %>
+              <hr class="hr" />
+            </h5>
+            <div class="card-text mt-4">
+              <div class="row d-flex flex-column">
+                <div class="col">
+                  <div class="label">Role:</div>
+                  <%= company.jd.position %>
+                </div>
+                <div class="col">
+                  <div class="label">Location:</div>
+                  <%= company.jd.location.city %>, <%= company.jd.location.state
+                  %>
+                </div>
+                <div class="col">
+                  <div class="label">Package:</div>
+                  <%= company.jd.package %>
+                </div>
+              </div>
             </div>
           </div>
+          <hr class="hr mb-4" />
+          <% if(currUser) {%>
+          <% if( currUser.role === 0 ) { %>
+          <a href="/company/about/<%= company._id  %>" class="btn btn-primary">Apply Now</a>
+          <% } else {%>
+          <div class="comp-buttons d-flex justify-content-between mb-3">
+            <a href="/company/about/<%= company._id  %>" class="btn btn-primary">About</a>
+            <a href="/company/edit/<%= company._id  %>" class="btn btn-warning">Edit</a>
+            <form action="/company/end/<%= company._id %>" method="post" class="d-inline-block">
+              <button class="btn btn-danger">End Drive</button>
+            </form>
+          </div>
+          <% } %>
+          <% } else {%>
+          <button type="button" class="btn btn-secondary" data-bs-toggle="popover" data-bs-title="Please Login" data-bs-content="Please login into an Account to interact">
+            Account Not Logged In
+          </button>
+          <% } %>
         </div>
       </div>
+    </div>
+    <% } %> <% } %>
+  </div>
+</div>
 
-      <div class="comp-buttons d-flex justify-content-between mb-3">
-        <% if(currUser) {%>
-        <% if( currUser.role === 0 ) { %>
-        <a href="/company/about/<%= company._id  %>" class="btn btn-primary">Apply Now</a>
-        <% } else {%>
-        <a href="/company/about/<%= company._id  %>" class="btn btn-primary">About</a>
-        <a href="/company/edit/<%= company._id  %>" class="btn btn-warning">Edit</a>
-        <form action="/company/end/<%= company._id %>" method="post" class="d-inline-block">
-          <button class="btn btn-danger">
-            End Drive
+<% if(currUser && currUser.role === 1) {%>
+<div class="company-form">
+  <h1 class="px-4 pt-5 pb-3">Completed Drives</h1>
+  <hr class="hr mx-4 mb-3 border border-1 border-black opacity-100" />
+
+  <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 px-3">
+    <% for(let i in companies) { let company = companies[i]%> <%
+    if(company.active === 1) {%>
+    <div class="company p-4">
+      <div class="card col company-card">
+        <img src="<%= company.file.image.url %>" class="card-img border-bottom" alt="<%= company.file.image.filename %>" />
+
+        <div class="card-body d-flex justify-content-between flex-column">
+          <div class="card-content mb-3">
+            <h5 class="card-title">
+              <%= company.name %>
+              <hr class="hr" />
+            </h5>
+            <div class="card-text mt-4">
+              <div class="row d-flex flex-column">
+                <div class="col">
+                  <div class="label">Role:</div>
+                  <%= company.jd.position %>
+                </div>
+                <div class="col">
+                  <div class="label">Location:</div>
+                  <%= company.jd.location.city %>, <%= company.jd.location.state
+                  %>
+                </div>
+                <div class="col">
+                  <div class="label">Package:</div>
+                  <%= company.jd.package %>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr class="hr mb-4" />
+          <% if(currUser) {%> <% if( currUser.role === 0 ) { %>
+          <a href="/company/about/<%= company._id  %>" class="btn btn-primary">Apply Now</a>
+          <% } else {%>
+          <div class="comp-buttons d-flex justify-content-between mb-3">
+            <a href="/company/about/<%= company._id  %>" class="btn btn-primary">About</a>
+            <a href="/company/edit/<%= company._id  %>" class="btn btn-warning">Edit</a>
+            <form action="/company/end/<%= company._id %>" method="post" class="d-inline-block">
+              <button class="btn btn-success">Resume Drive</button>
+            </form>
+          </div>
+          <% } %> <% } else {%>
+          <button type="button" class="btn btn-secondary" data-bs-toggle="popover" data-bs-title="Please Login" data-bs-content="Please login into an Account to interact">
+            Account Not Logged In
           </button>
-        </form>
-        <% } %>
-        <% } else {%>
-        <button type="button" class="btn btn-secondary" data-bs-toggle="popover" data-bs-title="Please Login" data-bs-content="Please login into an Account to interact">Account Not Logged In</button>
-        <% } %>
+          <% } %>
+        </div>
       </div>
     </div>
+    <% } %> <% } %>
   </div>
-  <% } %>
 </div>
+<% } %>

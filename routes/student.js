@@ -9,6 +9,7 @@ const {
   saveRedirectUrl,
   isAdmin,
   isStudent,
+  isLoggedIn,
 } = require("../middlewares/middleware.js");
 
 const { storage } = require("../config/cloudConfig.js");
@@ -37,16 +38,21 @@ router
     wrapAsync(studentController.loginStudent)
   );
 
-router.route("/profile/:username").get(studentController.profile);
+router.route("/profile/:username").get(isLoggedIn, studentController.profile);
 
 router
   .route("/editProfile")
-  .get(studentController.editProfile)
-  .post(studentFiles, wrapAsync(studentController.updateProfile));
+  .get(isLoggedIn, isStudent, studentController.editProfile)
+  .post(
+    studentFiles,
+    isLoggedIn,
+    isStudent,
+    wrapAsync(studentController.updateProfile)
+  );
 
-router.get("/myCompanies", studentController.companies);
+router.get("/myCompanies", isLoggedIn, isStudent, studentController.companies);
 
-router.get("/all", isAdmin, studentController.allStudents);
+router.get("/all", isLoggedIn, isAdmin, studentController.allStudents);
 
 router.get("/logout", studentController.logout);
 

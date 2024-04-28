@@ -62,7 +62,6 @@ router.post(
   "/apply/:id",
   saveRedirectUrl,
   isLoggedIn,
-  isStudent,
   isEligible,
   wrapAsync(companyController.apply)
 );

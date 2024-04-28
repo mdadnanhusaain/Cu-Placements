@@ -2,29 +2,39 @@ const Company = require("../models/company.js");
 const User = require("../models/user.js");
 
 module.exports.allDrive = async (req, res) => {
-  let companies = await Company.find({});
-  for (let i in companies) {
-    let company = companies[i];
-    await company.populate({
-      path: "students",
-      populate: {
-        path: "companies",
-      },
-    });
+  try {
+    let companies = await Company.find({});
+    for (let i in companies) {
+      let company = companies[i];
+      await company.populate({
+        path: "students",
+        populate: {
+          path: "companies",
+        },
+      });
+    }
+    res.render("pages/driveDetails.ejs", { companies });
+  } catch (err) {
+    req.flash("error", err.message);
+    res.redirect(res.locals.redirectUrl);
   }
-  res.render("pages/driveDetails.ejs", { companies });
 };
 
 module.exports.about = async (req, res) => {
-  let { id } = req.params;
-  let company = await Company.findById(id);
-  let applied;
-  if (company.students.includes(res.locals.currUser._id)) {
-    applied = 1;
-  } else {
-    applied = 0;
+  try {
+    let { id } = req.params;
+    let company = await Company.findById(id);
+    let applied;
+    if (company.students.includes(res.locals.currUser._id)) {
+      applied = 1;
+    } else {
+      applied = 0;
+    }
+    res.render("pages/aboutCompany.ejs", { company, applied });
+  } catch (err) {
+    req.flash("error", err.message);
+    res.redirect(res.locals.redirectUrl);
   }
-  res.render("pages/aboutCompany.ejs", { company, applied });
 };
 
 module.exports.addForm = (req, res) => {
@@ -58,15 +68,20 @@ module.exports.addCompany = async (req, res) => {
     let savedCompany = await newCompany.save();
     console.log("New Company added : " + savedCompany);
   } catch (error) {
-    console.log(error);
+    req.flash("error", err.message);
   }
   res.redirect("/");
 };
 
 module.exports.editForm = async (req, res) => {
-  let { id } = req.params;
-  let company = await Company.findById(id);
-  res.render("pages/editCompany.ejs", { company, pdf: process.env.PDF });
+  try {
+    let { id } = req.params;
+    let company = await Company.findById(id);
+    res.render("pages/editCompany.ejs", { company, pdf: process.env.PDF });
+  } catch (err) {
+    req.flash("error", err.message);
+    res.redirect(res.locals.redirectUrl);
+  }
 };
 
 module.exports.editCompany = async (req, res) => {
@@ -113,11 +128,20 @@ module.exports.apply = async (req, res) => {
   let { id } = req.params;
   let userId = res.locals.currUser._id;
   try {
+    let student = await User.findById(userId);
+
+    if (student.role === 1) {
+      req.flash(
+        "error",
+        "You can't perform this action as this is an Admin Account!"
+      );
+      return res.redirect(res.locals.redirectUrl);
+    }
+
     let company = await Company.findById(id);
     company.students.push(userId);
     let newCompany = await company.save();
 
-    let student = await User.findById(userId);
     student.companies.push(id);
     let newStudent = await student.save();
 
@@ -135,15 +159,26 @@ module.exports.endDrive = async (req, res) => {
   try {
     let { id } = req.params;
     let company = await Company.findById(id);
-    console.log(company);
-    company.active = 1;
-    company = await Company.findByIdAndUpdate(id, { ...company });
+    if (company.active === 0) {
+      company.active = 1;
+    } else {
+      company.active = 0;
+    }
     let savedCompany = await company.save();
-    console.log(`Drive for ${savedCompany.name} has ended now!`);
-    req.flash(
-      "success",
-      `Drive for ${savedCompany.name} has been ended successfully!`
-    );
+
+    if (company.active === 1) {
+      console.log(`Drive for ${savedCompany.name} has ended now!`);
+      req.flash(
+        "success",
+        `Drive for ${savedCompany.name} has been ended successfully!`
+      );
+    } else {
+      console.log(`Drive for ${savedCompany.name} is again live!`);
+      req.flash(
+        "success",
+        `Drive for ${savedCompany.name} has been made live again!`
+      );
+    }
   } catch (err) {
     console.log(err);
   }

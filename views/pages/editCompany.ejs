@@ -5,67 +5,40 @@
     <h1 class="form-heading text-center">Edit Company Details</h1>
     <br />
 
-    <form
-      action="/company/edit/<%= company._id %>"
-      method="POST"
-      class="needs-validation"
-      novalidate
-      enctype="multipart/form-data"
-    >
+    <form action="/company/edit/<%= company._id %>" method="POST" class="needs-validation" novalidate enctype="multipart/form-data">
       <div class="row">
         <div class="label">
-          <label for="" class="form-label"><h3>Company Description</h3></label>
+          <label for="" class="form-label">
+            <h3>Company Description</h3>
+          </label>
           <hr class="hr" />
         </div>
         <div class="mb-3 col-md-6">
           <label for="cname" class="form-label">Company Name</label>
-          <input
-            type="text"
-            class="form-control"
-            id="cname"
-            name="company[name]"
-            value="<%= company.name %>"
-            required
-          />
+          <input type="text" class="form-control" id="cname" name="company[name]" value="<%= company.name %>" required />
         </div>
 
         <div class="mb-3 col-md-6">
           <label for="cweb" class="form-label">Company Website</label>
-          <input
-            type="text"
-            class="form-control"
-            id="cweb"
-            name="company[website]"
-            value="<%= company.website %>"
-            required
-          />
+          <input type="text" class="form-control" id="cweb" name="company[website]" value="<%= company.website %>" required />
         </div>
 
         <div class="mb-3 col-md-6">
           <label for="ddate" class="form-label">Date of Drive</label>
-          <input
-            type="date"
-            class="form-control"
-            id="ddate"
-            required
-            name="company[dDate]"
-            value="<%= company.dDate %>"
-          />
+          <input type="date" class="form-control" id="ddate" required name="company[dDate]" value="<%= company.dDate %>" />
         </div>
         <div class="mb-3 col-md-6">
           <label for="" class="form-label">Type of Drive</label>
           <br />
           <div class="col-8 d-flex justify-content-between">
             <div>
-              <input type="radio" class="form-check-input" id="on-campus"
-              name="company[dtype]" value="oncampus" required <%
+              <input type="radio" class="form-check-input" id="on-campus" name="company[dtype]" value="oncampus" required <%
               if(company.dtype === "oncampus") {%> checked <% } %> />
               <label for="on-campus" class="form-label">On-campus</label>
             </div>
 
             <div>
-              <input type="radio" class="form-check-input" id="female"
-              name="company[dtype]" value="virtual" required <% if(company.dtype
+              <input type="radio" class="form-check-input" id="female" name="company[dtype]" value="virtual" required <% if(company.dtype
               === "virtual") {%> checked <% } %> />
               <label for="female" class="form-label">Virtual</label>
             </div>
@@ -73,187 +46,97 @@
         </div>
         <div class="mb-3 col-md-12">
           <label for="desc" class="form-label">About Company</label>
-          <textarea
-            class="form-control text-area"
-            id="desc"
-            name="company[desc]"
-            required
-          >
+          <textarea class="form-control text-area" id="desc" name="company[desc]" required>
 <%= company.desc
-          %></textarea
-          >
+          %></textarea>
         </div>
       </div>
 
       <div class="row">
         <div class="label">
-          <label for="" class="form-label"><h3>Eligibility</h3></label>
+          <label for="" class="form-label">
+            <h3>Eligibility</h3>
+          </label>
           <hr class="hr" />
         </div>
         <div class="mb-3 col-md-6">
           <label for="tenper" class="form-label">10th Percentage</label>
-          <input
-            type="number"
-            class="form-control"
-            id="tenper"
-            required
-            name="company[eligibility][tenth]"
-            value="<%= company.eligibility.tenth%>"
-          />
+          <input type="number" class="form-control" id="tenper" required name="company[eligibility][tenth]" value="<%= company.eligibility.tenth%>" />
         </div>
         <div class="mb-3 col-md-6">
           <label for="tweper" class="form-label">12th Percentage</label>
-          <input
-            type="number"
-            class="form-control"
-            id="tweper"
-            required
-            name="company[eligibility][twelfth]"
-            value="<%= company.eligibility.twelfth%>"
-          />
+          <input type="number" class="form-control" id="tweper" required name="company[eligibility][twelfth]" value="<%= company.eligibility.twelfth%>" />
         </div>
 
         <div class="mb-3 col-md-6">
           <label for="branch" class="form-label">Branch</label>
-          <input
-            type="text"
-            class="form-control"
-            id="branch"
-            required
-            name="company[eligibility][branch]"
-            value="<%= company.eligibility.branch %>"
-          />
+          <input type="text" class="form-control" id="branch" required name="company[eligibility][branch]" value="<%= company.eligibility.branch %>" />
         </div>
         <div class="mb-3 col-md-6">
           <label for="stream" class="form-label">Stream</label>
-          <input
-            type="text"
-            class="form-control"
-            id="stream"
-            required
-            name="company[eligibility][stream]"
-            value="<%= company.eligibility.stream%>"
-          />
+          <input type="text" class="form-control" id="stream" required name="company[eligibility][stream]" value="<%= company.eligibility.stream%>" />
         </div>
         <div class="mb-3 col-md-4">
           <label for="batch" class="form-label">Batch</label>
-          <input
-            type="number"
-            class="form-control"
-            id="batch"
-            required
-            name="company[eligibility][batch]"
-            value="<%= company.eligibility.batch%>"
-          />
+          <input type="number" class="form-control" id="batch" required name="company[eligibility][batch]" value="<%= company.eligibility.batch%>" />
         </div>
         <div class="mb-3 col-md-4">
           <label for="cgpa" class="form-label">CGPA</label>
-          <input
-            type="number"
-            class="form-control"
-            id="cgpa"
-            required
-            name="company[eligibility][cgpa]"
-            value="<%= company.eligibility.cgpa%>"
-          />
+          <input type="number" class="form-control" id="cgpa" required name="company[eligibility][cgpa]" value="<%= company.eligibility.cgpa%>" />
         </div>
         <div class="mb-3 col-md-4">
           <label for="gap" class="form-label">Gap</label>
-          <input
-            type="number"
-            class="form-control"
-            id="gap"
-            required
-            name="company[eligibility][gap]"
-            value="<%= company.eligibility.gap %>"
-          />
+          <input type="number" class="form-control" id="gap" required name="company[eligibility][gap]" value="<%= company.eligibility.gap %>" />
         </div>
       </div>
 
       <div class="row">
         <div class="label">
-          <label for="" class="form-label"><h3>Job Description</h3></label>
+          <label for="" class="form-label">
+            <h3>Job Description</h3>
+          </label>
           <hr class="hr" />
         </div>
 
         <div class="mb-3 col-md-6">
           <label for="position" class="form-label">Position</label>
-          <input
-            type="text"
-            class="form-control"
-            id="position"
-            required
-            name="company[jd][position]"
-            value="<%= company.jd.position%>"
-          />
+          <input type="text" class="form-control" id="position" required name="company[jd][position]" value="<%= company.jd.position%>" />
         </div>
         <div class="mb-3 col-md-6">
           <label for="salary" class="form-label">Pay package</label>
-          <input
-            type="text"
-            class="form-control"
-            id="salary"
-            required
-            name="company[jd][package]"
-            value="<%= company.jd.package%>"
-          />
+          <input type="text" class="form-control" id="salary" required name="company[jd][package]" value="<%= company.jd.package%>" />
         </div>
         <div class="mb-3 col-md-6">
           <label for="city" class="form-label">City</label>
-          <input
-            type="text"
-            class="form-control"
-            id="city"
-            required
-            name="company[jd][location][city]"
-            value="<%= company.jd.location.city%>"
-          />
+          <input type="text" class="form-control" id="city" required name="company[jd][location][city]" value="<%= company.jd.location.city%>" />
         </div>
         <div class="mb-3 col-md-6">
           <label for="state" class="form-label">State</label>
-          <input
-            type="text"
-            class="form-control"
-            id="state"
-            required
-            name="company[jd][location][state]"
-            value="<%= company.jd.location.state%>"
-          />
+          <input type="text" class="form-control" id="state" required name="company[jd][location][state]" value="<%= company.jd.location.state%>" />
         </div>
         <div class="mb-3 col-md-6">
           <label for="bond" class="form-label">Bond</label>
-          <input
-            type="text"
-            class="form-control"
-            id="bond"
-            required
-            name="company[jd][bond]"
-            value="<%= company.jd.bond%>"
-          />
+          <input type="text" class="form-control" id="bond" required name="company[jd][bond]" value="<%= company.jd.bond%>" />
         </div>
       </div>
 
       <div class="row">
         <div class="label">
-          <label for="" class="form-label"><h3>Upload Files</h3></label>
+          <label for="" class="form-label">
+            <h3>Upload Files</h3>
+          </label>
           <hr class="hr" />
         </div>
 
         <div class="mb-3 col-md-6">
           <label class="form-label">Current Logo</label>
           <div class="logoArea">
-            <img
-              class="curr-img"
-              src="<%= company.file.image.url %>"
-              alt="<%= company.file.image.filename %>"
-            />
+            <img class="curr-img" src="<%= company.file.image.url %>" alt="<%= company.file.image.filename %>" />
           </div>
         </div>
 
         <div class="mb-3 col-md-6 overflow-hidden">
-          <label for="curr-jd" class="form-label"
-            >Current Job Description</label
-          >
+          <label for="curr-jd" class="form-label">Current Job Description</label>
           <label for="curr-jd" class="jdArea col-md-12">
             <a href="<%= company.file.jd.url %>">
               <img src="<%= pdf %>" alt="" class="pdf-logo" />
@@ -268,13 +151,7 @@
           <label for="logo" class="form-label">Company Logo</label>
           <label for="logo" class="dropArea form-control col-md-12">
             <div class="mb-3">
-              <input
-                type="file"
-                id="logo"
-                name="company[file][image]"
-                class="form-control"
-                accept="image/*"
-              />
+              <input type="file" id="logo" name="company[file][image]" class="form-control" accept="image/*" />
               <div class="drop-message">
                 <p id="drop-text"><b>Select an Image</b> or drag it here</p>
               </div>
@@ -285,13 +162,7 @@
           <label for="arole" class="form-label">Job Description</label>
           <label for="arole" class="dropArea form-control col-md-12">
             <div class="mb-3">
-              <input
-                type="file"
-                class="form-control"
-                id="arole"
-                accept="application/pdf"
-                name="company[file][jd]"
-              />
+              <input type="file" class="form-control" id="arole" accept="application/pdf" name="company[file][jd]" />
               <div class="drop-message">
                 <p id="drop-text"><b>Select a PDF</b> or drag it here</p>
               </div>

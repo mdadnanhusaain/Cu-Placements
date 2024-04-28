@@ -120,8 +120,60 @@ module.exports.isEligible = async (req, res, next) => {
     let company = await Company.findById(id);
     let student = await User.findById(userId);
 
-    // Checking 10th score
+    // Checking eligibility criteria
+    const { eligibility } = company;
+    const { academics, university } = student;
 
+    // Check 10th score
+    if (academics.tenth.percentage < eligibility.tenth) {
+      req.flash(
+        "error",
+        "You do not meet the 10th grade percentage requirement."
+      );
+      return res.redirect(`/company/about/${id}`);
+    }
+
+    // Check 12th score
+    if (academics.twelfth.percentage < eligibility.twelfth) {
+      req.flash(
+        "error",
+        "You do not meet the 12th grade percentage requirement."
+      );
+      return res.redirect(`/company/about/${id}`);
+    }
+
+    // Check university branch
+    if (university.branch !== eligibility.branch) {
+      req.flash("error", "Your branch does not meet the eligibility criteria.");
+      return res.redirect(`/company/about/${id}`);
+    }
+
+    // Check stream
+    if (university.stream !== eligibility.stream) {
+      req.flash("error", "Your stream does not meet the eligibility criteria.");
+      return res.redirect(`/company/about/${id}`);
+    }
+
+    // Check CGPA
+    if (university.cgpa < eligibility.cgpa) {
+      req.flash("error", "Your CGPA does not meet the minimum requirement.");
+      return res.redirect(`/company/about/${id}`);
+    }
+
+    // Check educational gap
+    if (university.gap > eligibility.gap) {
+      req.flash("error", "Your educational gap exceeds the allowable limit.");
+      return res.redirect(`/company/about/${id}`);
+    }
+
+    // Check batch year
+    if (university.batch !== eligibility.batch) {
+      req.flash("error", "You are not eligible due to your batch year.");
+      return res.redirect(`/company/about/${id}`);
+    }
+
+    // If all checks pass, proceed to the next middleware
+    next();
   } catch (err) {
     req.flash("error", err.message);
     res.redirect(`/company/about/${id}`);
