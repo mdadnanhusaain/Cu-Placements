@@ -12,41 +12,41 @@ module.exports.signupStudent = async (req, res) => {
     console.log(newStudent);
 
     // Adding Image details
-    // let image = req.files["student[file][image]"][0];
-    // newStudent.file.image.url = image.path;
-    // newStudent.file.image.filename = image.originalname;
+    let image = req.files["student[file][image]"][0];
+    newStudent.file.image.url = image.path;
+    newStudent.file.image.filename = image.originalname;
 
     // Adding Resume details
-    // let resume = req.files["student[file][resume]"][0];
+    let resume = req.files["student[file][resume]"][0];
 
-    // let filename = resume.originalname;
-    // filename = filename.split(".");
-    // jdFileExt = filename[1];
-    // filename = filename[0];
-    // filename = filename.replaceAll(" ", "_");
+    let filename = resume.originalname;
+    filename = filename.split(".");
+    jdFileExt = filename[1];
+    filename = filename[0];
+    filename = filename.replaceAll(" ", "_");
 
-    // let url = resume.path;
-    // let urlArray = url.split("upload");
-    // url = urlArray[0] + "upload/fl_attachment:" + filename + urlArray[1];
-    // filename = filename + `.${jdFileExt}`;
+    let url = resume.path;
+    let urlArray = url.split("upload");
+    url = urlArray[0] + "upload/fl_attachment:" + filename + urlArray[1];
+    filename = filename + `.${jdFileExt}`;
 
-    // newStudent.file.resume.url = url;
-    // newStudent.file.resume.filename = filename;
+    newStudent.file.resume.url = url;
+    newStudent.file.resume.filename = filename;
 
-    // let registeredStudent = await User.register(newStudent, student.password);
+    let registeredStudent = await User.register(newStudent, student.password);
 
-    // console.log(`Registered Student :- ${registeredStudent}`);
+    console.log(`Registered Student :- ${registeredStudent}`);
 
-    // req.login(registeredStudent, (err) => {
-    //   if (err) {
-    //     return next(err);
-    //   }
-    //   req.flash(
-    //     "success",
-    //     `Hi @${student.name}!  Welcome to ${res.locals.appName}`
-    //   );
-    //   res.redirect("/");
-    // });
+    req.login(registeredStudent, (err) => {
+      if (err) {
+        return next(err);
+      }
+      req.flash(
+        "success",
+        `Hi @${student.name}!  Welcome to ${res.locals.appName}`
+      );
+      res.redirect("/");
+    });
   } catch (err) {
     req.flash("error", err.message);
     res.redirect("/student/signup");
