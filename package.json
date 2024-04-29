@@ -1,6 +1,6 @@
 {
   "engines": {
-    "node": "18.17.1"
+    "node": "18.20.2"
   },
   "name": "cu-placements-competitions",
   "version": "1.0.0",
