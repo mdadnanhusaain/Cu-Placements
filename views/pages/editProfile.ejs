@@ -77,11 +77,19 @@
       <div class="row">
         <div class="mb-3 col-md-6">
           <label for="branch" class="form-label">Branch</label>
-          <input type="text" class="form-control" id="branch" name="student[university][branch]" value="<%= student.university.branch  %>" required />
+          <select class="form-select" id="branch" name="student[university][branch]" required>
+            <option <% if(student.university.branch === "Bachelor of Engineering"){ %> selected <% } %> value="Bachelor of Engineering" <% if(student.university.branch === "Bachelor of Engineering") %>>BE/BTech</option>
+            <option <% if(student.university.branch === "Bachelor of Commerce"){ %> selected <% } %> value="Bachelor of Commerce">BCom</option>
+            <option <% if(student.university.branch === "Bachelor of Business Administration"){ %> selected <% } %> value="Bachelor of Business Administration">BBA</option>
+            <option <% if(student.university.branch === "Bachelor of Science"){ %> selected <% } %> value="Bachelor of Science">BSc</option>
+            <option <% if(student.university.branch === "Master of Business Administration") %> value="Master of Business Administration">MBA</option>
+            <option <% if(student.university.branch === "Master of Technology"){ %> selected <% } %> value="Master of Technology">MTech</option>
+          </select>
         </div>
         <div class="mb-3 col-md-6">
           <label for="stream" class="form-label">Stream</label>
-          <input type="text" class="form-control" id="stream" name="student[university][stream]" value="<%= student.university.stream  %>" required />
+          <select class="form-select" id="stream" name="student[university][stream]" required>
+          </select>
         </div>
       </div>
       <div class="row">
@@ -218,3 +226,4 @@
 </div>
 
 <script src="/js/dragAndDrop.js"></script>
+<script src="/js/handleBranch.js"></script>
