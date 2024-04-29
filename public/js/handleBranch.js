@@ -55,7 +55,7 @@ document.getElementById("branch").addEventListener("change", function () {
   // Convert the set of streams into dropdown options
   availableStreams.forEach(function (stream) {
     let option = document.createElement("option");
-    option.value = stream.toLowerCase().replace(/\s+/g, "");
+    option.value = stream;
     option.textContent = stream;
     streamSelect.appendChild(option);
   });
