@@ -67,7 +67,7 @@ module.exports.addCompany = async (req, res) => {
 
     let savedCompany = await newCompany.save();
     console.log("New Company added : " + savedCompany);
-  } catch (error) {
+  } catch (err) {
     req.flash("error", err.message);
   }
   res.redirect("/");
@@ -85,9 +85,8 @@ module.exports.editForm = async (req, res) => {
 };
 
 module.exports.editCompany = async (req, res) => {
+  let { id } = req.params;
   try {
-    let { id } = req.params;
-
     let company = req.body.company;
     let newCompany = await Company.findByIdAndUpdate(id, { ...company });
 
@@ -118,10 +117,11 @@ module.exports.editCompany = async (req, res) => {
 
     let savedCompany = await newCompany.save();
     console.log("Company Details edited : " + savedCompany);
-  } catch (error) {
-    console.log(error);
+  } catch (err) {
+    req.flash("error", err.message);
+    console.log(err);
   }
-  res.redirect("/");
+  res.redirect(`/company/about/${id}`);
 };
 
 module.exports.apply = async (req, res) => {

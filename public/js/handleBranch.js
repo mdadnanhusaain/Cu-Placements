@@ -35,7 +35,7 @@ document.getElementById("branch").addEventListener("change", function () {
 
   // Add a default option
   let defaultOption = document.createElement("option");
-  defaultOption.textContent = "---- Select your stream ----";
+  defaultOption.textContent = "---- Select the stream ----";
   defaultOption.disabled = true;
   defaultOption.selected = true;
   streamSelect.appendChild(defaultOption);
