@@ -41,7 +41,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: start;
   margin-left: 1rem;
   font-weight: 700;
   color: #e53825;
@@ -141,7 +141,7 @@ body {
 }
 
 .admin-form {
-  padding: 2rem;
+  padding: 5rem;
   border-radius: 1rem;
   background-color: #fb291277;
   box-shadow: 0.5rem 0.5rem 0.5rem #a9413684;
@@ -152,13 +152,13 @@ body {
   background-color: #bfcddc99;
   box-shadow: 0.5rem 0.5rem 0.5rem #566f8a99;
   border-radius: 1rem;
-  margin-bottom: 3rem;
+  margin-bottom: 5rem;
 }
 
 .company-form {
   background-color: #d0e3ff99;
   border-radius: 1rem;
-  margin-bottom: 3rem;
+  margin-bottom: 5rem;
   box-shadow: 0.5rem 0.5rem 0.25rem #19396999;
 }
 
@@ -251,21 +251,6 @@ body {
   height: 90%;
   width: 90%;
   object-fit: cover;
-}
-
-.footer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  color: #eee;
-  background-color: #888;
-  height: 4rem;
-  box-shadow: 0 -0.1rem 1rem #aaa;
-  position: absolute;
-  right: 0;
-  left: 0;
-  bottom: 0;
 }
 
 /* Profile css */
@@ -483,4 +468,84 @@ body {
   background-color: #bfc6fd8f;
   box-shadow: 0 0 0.4rem #8693f98f;
   border: none;
+}
+
+/* Footer */
+
+.footer {
+  color: #eee;
+  background-color: #888;
+  min-height: 4rem;
+  box-shadow: 0 -0.1rem 1rem #aaa;
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+
+.name {
+  text-shadow: 0 0 0.2rem black;
+}
+
+.f-info-socials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.f-info-socials i {
+  font-size: 1.6rem;
+  padding: 0.15rem 0.65rem;
+  margin: 0.5rem 0;
+  transition: 0.3s linear;
+  cursor: pointer;
+}
+
+.f-info-socials i:hover {
+  scale: 1.4;
+  transition: 0.3s linear;
+}
+
+.fa-brands {
+  transition: 0.3s linear;
+}
+
+.fa-square-instagram:hover {
+  color: transparent;
+  background: radial-gradient(
+    circle at 30% 107%,
+    #fdf497 0%,
+    #fdf497 5%,
+    #fd5949 45%,
+    #d6249f 60%,
+    #285aeb 90%
+  );
+  background: -webkit-radial-gradient(
+    circle at 30% 107%,
+    #fdf497 0%,
+    #fdf497 5%,
+    #fd5949 45%,
+    #d6249f 60%,
+    #285aeb 90%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+.fa-square-github:hover {
+  color: #080808;
+}
+
+.fa-square-x-twitter:hover {
+  color: #080808;
+}
+
+.fa-linkedin:hover {
+  color: #087bb9;
+}
+
+.f-info-socials a {
+  text-decoration: none;
+  color: #222;
+  transition: 0.3s linear;
 }
