@@ -278,7 +278,7 @@ body {
   /* flex-direction: column; */
 }
 
-@media (max-width: 500px) {
+@media (max-width: 675px) {
   .profile-container .left-side {
     flex-direction: column;
   }
@@ -440,6 +440,10 @@ body {
   border-bottom: 3px solid rgba(255, 255, 255, 0.2);
 }
 
+.job-description {
+  padding-bottom: 5rem;
+}
+
 .job-description .title {
   text-transform: uppercase;
   color: #fff;
@@ -559,4 +563,8 @@ body {
   text-decoration: none;
   color: #222;
   transition: 0.3s linear;
+}
+
+.part {
+  border: 1.6px solid rgba(255, 255, 255, 0.8);
 }

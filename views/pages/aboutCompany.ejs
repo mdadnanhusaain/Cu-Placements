@@ -48,20 +48,7 @@
       <br /><br />
     </div>
 
-    <div class="job-description">
-      <h3 class="title">Job Description</h3>
-      <br />
-      <ul>
-        <li>
-          <label for="curr-jd" class="border-0">
-            <a href="<%= company.file.jd.url %>" class="text-light d-flex flex-column lh-lg text-decoration-none align-items-center">
-              <img src="<%= process.env.PDF %>" alt="" class="pdf-logo h-25 w-25" />
-              <label id="curr-jd "><%= company.file.image.filename %></label>
-            </a>
-          </label>
-        </li>
-      </ul>
-    </div>
+
   </div>
 
   <div class="right-side">
@@ -70,6 +57,8 @@
       <div>
         <p class="text company-text"><%= company.desc %></p>
       </div>
+
+
     </div>
 
     <br />
@@ -110,6 +99,23 @@
             </li>
           </div>
         </div>
+      </ul>
+    </div>
+
+    <hr class="part">
+
+    <div class="job-description">
+      <h3 class="title">Job Description</h3>
+      <br />
+      <ul>
+        <li style="list-style-type: none;">
+          <label for="curr-jd" class="border-0">
+            <a href="<%= company.file.jd.url %>" class="text-light d-flex flex-column lh-lg text-decoration-none align-items-center">
+              <img src="<%= process.env.PDF %>" alt="" class="pdf-logo h-25 w-25" />
+              <label id="curr-jd "><%= company.file.image.filename %></label>
+            </a>
+          </label>
+        </li>
       </ul>
     </div>
     <% if(currUser.role === 0 ) {%> <% if(applied===0){ %>
